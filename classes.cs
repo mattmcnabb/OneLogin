@@ -11,7 +11,7 @@ namespace OneLogin
         public string login_id {get; set;}
         public string name {get; set;}
         public bool personal {get; set;}
-        public bool provisioned {get; set;}  
+        public bool provisioned {get; set;}
     }
 
     public class Event
@@ -57,10 +57,10 @@ namespace OneLogin
         public string proxy_ip {get; set;}
         public string resolution {get; set;}
         public string resource_type_id {get; set;}
-        public string role_id {get; set;}  
+        public string role_id {get; set;}
         public string role_name {get; set;}
         public string user_id {get; set;}
-        public string user_name {get; set;} 
+        public string user_name {get; set;}
     }
 
     public class Group
@@ -133,7 +133,7 @@ namespace OneLogin
                 {
                     return "Unknown";
                 }
-            } 
+            }
         }
         public DateTimeOffset? updated_at {get; set;}
         public string username {get; set;}
@@ -141,7 +141,7 @@ namespace OneLogin
     }
 
     // enums
-    public enum Parameters
+    public enum RoleParameters
     {
         name
     }
