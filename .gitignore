@@ -1,0 +1,4 @@
+.vscode
+cred*
+*.xml
+debug.ps1
