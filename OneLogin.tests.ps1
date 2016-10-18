@@ -16,7 +16,7 @@ Describe "Manifest" {
     }
 
     It "has a valid root module" {
-        $ManifestHash.RootModule | Should Be "$ModuleName.psm1"
+        $ManifestHash.NestedModules | Should Be "$ModuleName.psm1"
     }
 
     It "has a valid Description" {
@@ -59,36 +59,6 @@ Describe "Manifest" {
 
 Describe "Functions" {
     InModuleScope -ModuleName $ModuleName {
-        
-        Context "New-OneLoginToken" {
-            $TokenResponse = [PSCustomObject]@{
-                access_token  = "f2ebc4de50b04ed894e4ed12ae65f89f72ebea733454e2158eaccc56dcbc2395"
-                account_id    = 57435
-                created_at    = "10/2/2016 9:53:17 PM"
-                expires_in    = 36000
-                expires_at    = "10/3/2016 7:53:17 AM"
-                refresh_token = "ab1da949439d461dbffeb969024131693e9c2c23c758de48e53bfd64505a29c2"
-                token_type    = "bearer"
-            }
-            $Credential = [PSCredential]::new("OneLoginUser", (ConvertTo-SecureString -String '1234568' -AsPlainText -Force))
-            Mock -CommandName Invoke-OneLoginRestMethod -MockWith $TokenResponse
-            $Script:Token = New-OneLoginToken -Region us -Credential $Credential
-
-            It "outputs a OneLoginToken object" {
-                $Token | Should BeOfType "OneLoginToken"
-            }
-            
-        }
-
-        Context "Invoke-OneLoginRestMethod" {
-            $Token = 
-
-            It "returns all pages" {
-                Invoke-OneLoginRestMethod | Should Be "Something"
-            }
-        }
-
-
         Context "Get-BoundParameter" {
             $BoundParameters = @{
                 Param1              = "Value1"
