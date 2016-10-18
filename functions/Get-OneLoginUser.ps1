@@ -8,11 +8,11 @@ function Get-OneLoginUser
         [ValidateScript(
             {
                 $Property = $_.GetEnumerator().Name
-                $EnumValues = [OneLogin.UserFilterParameters].GetEnumValues()
-                if ($Property -in $EnumValues) { $true }
+                $EnumValues = [OneLogin.UserFilterParameters].GetEnumNames()
+                if ($Property -cin $EnumValues) { $true }
                 else
                 {
-                    throw "[$Property] is not a filterable property. Filterable properties are [$($EnumValues -join ', ')]"
+                    throw "[$Property] is not a filterable property. Filterable properties are [$($EnumValues -join ', ')]. These properties are CASE-SENSITIVE!"
                 }
                 
             }
