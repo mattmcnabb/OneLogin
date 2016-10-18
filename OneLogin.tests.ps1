@@ -1,7 +1,8 @@
-$ModulePath = $PSScriptRoot
-$ModuleName = (Get-Item $ModulePath).Name
-$ManifestPath   = "$ModulePath\$ModuleName.psd1"
+$ModulePath = Split-Path -Parent $MyInvocation.MyCommand.Path
+$ModuleName = (Split-Path -Leaf $MyInvocation.MyCommand.Path) -Replace ".Tests.ps1"
 
+$ManifestPath   = "$ModulePath\$ModuleName.psd1"
+if (Get-Module -Name $ModuleName) { Remove-Module $ModuleName -Force }
 Import-Module $ManifestPath
 
 # test the module manifest - exports the right functions, processes the right formats, and is generally correct
