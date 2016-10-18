@@ -53,5 +53,5 @@ function Invoke-OneLoginRestMethod
         }
         
     }
-    while ($Response.Pagination.after_cursor)    
+    while ($Response.Pagination.after_cursor -and $Response.data.count -eq 50)    
 }
