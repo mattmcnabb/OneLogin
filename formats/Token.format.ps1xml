@@ -61,11 +61,11 @@
               </ListItem>
               <ListItem>
                 <Label>created_at</Label>
-                <ScriptBlock>$_.created_at.LocalDateTime.ToSting()</ScriptBlock>
+                <ScriptBlock>$_.created_at.LocalDateTime</ScriptBlock>
               </ListItem>
               <ListItem>
                 <Label>expires_at</Label>
-                <ScriptBlock>$_.expires_at.LocalDateTime.ToString()</ScriptBlock>
+                <ScriptBlock>$_.expires_at.LocalDateTime</ScriptBlock>
               </ListItem>
               <ListItem>
                 <PropertyName>expires_in</PropertyName>

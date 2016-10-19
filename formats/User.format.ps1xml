@@ -58,11 +58,11 @@
             <ListItems>
               <ListItem>
                 <Label>activated_at</Label>
-                <ScriptBlock>$_.activated_at.LocalDateTime.ToString()</ScriptBlock>
+                <ScriptBlock>$_.activated_at.LocalDateTime</ScriptBlock>
               </ListItem>
               <ListItem>
                 <Label>created_at</Label>
-                <ScriptBlock>$_.created_at.LocalDateTime.ToString()</ScriptBlock>
+                <ScriptBlock>$_.created_at.LocalDateTime</ScriptBlock>
               </ListItem>
               <ListItem>
                 <PropertyName>custom_attributes</PropertyName>
@@ -93,11 +93,11 @@
               </ListItem>
               <ListItem>
                 <Label>invitation_sent_at</Label>
-                <ScriptBlock>$_.invitation_sent_at.LocalDateTime.ToString()</ScriptBlock>
+                <ScriptBlock>$_.invitation_sent_at.LocalDateTime</ScriptBlock>
               </ListItem>
               <ListItem>
                 <Label>last_login</Label>
-                <ScriptBlock>$_.last_login.LocalDateTime.ToString()</ScriptBlock>
+                <ScriptBlock>$_.last_login.LocalDateTime</ScriptBlock>
               </ListItem>
               <ListItem>
                 <PropertyName>lastname</PropertyName>
@@ -107,7 +107,7 @@
               </ListItem>
               <ListItem>
                 <Label>locked_until</Label>
-                <ScriptBlock>$_.locked_until.LocalDateTime.ToString()</ScriptBlock>
+                <ScriptBlock>$_.locked_until.LocalDateTime</ScriptBlock>
               </ListItem>
               <ListItem>
                 <PropertyName>umanager_ad_id</PropertyName>
@@ -120,7 +120,7 @@
               </ListItem>
               <ListItem>
                 <Label>password_changed_at</Label>
-                <ScriptBlock>$_.password_changed_at.LocalDateTime.ToString()</ScriptBlock>
+                <ScriptBlock>$_.password_changed_at.LocalDateTime</ScriptBlock>
               </ListItem>
               <ListItem>
                 <PropertyName>phone</PropertyName>
