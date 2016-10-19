@@ -61,11 +61,17 @@
                 <ScriptBlock>$_.activated_at.LocalDateTime</ScriptBlock>
               </ListItem>
               <ListItem>
+                <PropertyName>company</PropertyName>
+              </ListItem>
+              <ListItem>
                 <Label>created_at</Label>
                 <ScriptBlock>$_.created_at.LocalDateTime</ScriptBlock>
               </ListItem>
               <ListItem>
                 <PropertyName>custom_attributes</PropertyName>
+              </ListItem>
+              <ListItem>
+                <PropertyName>department</PropertyName>
               </ListItem>
               <ListItem>
                 <PropertyName>directory_id</PropertyName>
@@ -136,6 +142,9 @@
               </ListItem>
               <ListItem>
                 <PropertyName>status_value</PropertyName>
+              </ListItem>
+              <ListItem>
+                <PropertyName>title</PropertyName>
               </ListItem>
               <ListItem>
                 <Label>updated_at</Label>

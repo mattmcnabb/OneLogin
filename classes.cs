@@ -97,8 +97,10 @@ namespace OneLogin
     public class User
     {
         public DateTimeOffset? activated_at { get; set; }
+        public string company { get; set; }
         public DateTimeOffset? created_at { get; set; }
         public object[] custom_attributes { get; set; }
+        public string department { get; set; }
         public string directory_id {get; set;}
         public string distinguished_name {get; set;}
         public string email {get; set;}
@@ -135,6 +137,7 @@ namespace OneLogin
                 }
             }
         }
+        public string title {get; set;}
         public DateTimeOffset? updated_at {get; set;}
         public string username {get; set;}
         public string userprincipalname {get; set;}
