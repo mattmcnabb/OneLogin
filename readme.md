@@ -9,7 +9,7 @@ OneLogin is a cloud identity and access management applicaotion. This PowerShell
 PowerShell v5.0 or greater
 
 ### Note
-While this module has only been tested on PowerShell v5.0, it should work in PowerShell v3.0 or greater.
+While this module has only been tested on PowerShell v5.0, support for downlevel versions may be added when more testing is in place.
 
 ## Getting Started
 ### Install and import the module
