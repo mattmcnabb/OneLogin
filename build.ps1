@@ -1,9 +1,14 @@
-﻿[CmdletBinding()]
+﻿[CmdletBinding(DefaultParameterSetName = "NoPublish")]
 param
 (
     # a credential whose password is the PS Gallery API key
+    [Parameter(ParameterSetName = "Publish", Mandatory)]
     [PSCredential]
-    $Credential
+    $Credential,
+
+    [Parameter(ParameterSetName = "Publish")]
+    [switch]
+    $Publish
 )
 
 try
@@ -31,8 +36,11 @@ try
     New-Item -ItemType Directory -Name en-US -Path $Temp\ -ErrorAction Stop
     New-ExternalHelp -Path $path\md-help -OutPutPath $temp\en-US\OneLogin.xml -ErrorAction Stop
 
-    Write-Verbose 'Publishing module to PowerShellGet...'
-    Publish-Module -Path $temp -NuGetApiKey ($Credential.GetNetworkCredential().Password) -Confirm:$false -ErrorAction Stop
+    if ($Publish)
+    {
+        Write-Verbose 'Publishing module to PowerShellGet...'
+        Publish-Module -Path $temp -NuGetApiKey ($Credential.GetNetworkCredential().Password) -Confirm:$false -ErrorAction Stop
+    }
 }
 catch
 {
@@ -43,7 +51,11 @@ finally
 {
     if ($temp)
     {
-        Write-Verbose 'Cleaning up temporary folder...'
+        if ($Publish)
+        {
+            Write-Verbose 'Cleaning up temporary folder...'
         Remove-Item -LiteralPath $temp -ErrorAction Ignore -Recurse -Force
+        }
+        else {Invoke-Item $temp}
     }
 }
