@@ -29,7 +29,7 @@ try
 
     Write-Verbose "Generating XML help..."
     New-Item -ItemType Directory -Name en-US -Path $Temp\ -ErrorAction Stop
-    New-ExternalHelp -Path $path\md-help -OutPutPath $temp\OneLogin.xml -ErrorAction Stop
+    New-ExternalHelp -Path $path\md-help -OutPutPath $temp\en-US\OneLogin.xml -ErrorAction Stop
 
     Write-Verbose 'Publishing module to PowerShellGet...'
     Publish-Module -Path $temp -NuGetApiKey ($Credential.GetNetworkCredential().Password) -Confirm:$false -ErrorAction Stop
