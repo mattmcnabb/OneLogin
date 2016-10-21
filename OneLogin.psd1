@@ -1,6 +1,6 @@
 @{
     NestedModules = @('OneLogin.psm1')
-    ModuleVersion = '1.0.3'
+    ModuleVersion = '1.0.4'
     GUID = '87e0e33a-1747-4ff2-a812-890565b4f0d1'
     Author = 'Matt McNabb'
     Copyright = '(c) 2016 . All rights reserved.'
@@ -43,8 +43,7 @@
             ProjectUri = 'https://github.com/mattmcnabb/OneLogin'
             ReleaseNotes = @"
 BUG FIXES
-- Fixed: command help not working
-
+- Fixed: command help not working - again :(
 "@
         }
     }

@@ -34,7 +34,7 @@ try
 
     Write-Verbose "Generating XML help..."
     New-Item -ItemType Directory -Name en-US -Path $Temp\ -ErrorAction Stop
-    New-ExternalHelp -Path $path\md-help -OutPutPath $temp\en-US\OneLogin.xml -ErrorAction Stop
+    New-ExternalHelp -Path $path\md-help -OutPutPath $temp\en-US\OneLogin-help.xml -ErrorAction Stop
 
     if ($Publish)
     {
