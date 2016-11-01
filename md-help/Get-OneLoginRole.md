@@ -4,14 +4,14 @@
 Retrieves roles from a OneLogin account.
 
 ## DESCRIPTION
-Retrieves roles from a OneLogin account. 
+Retrieves roles from a OneLogin account.
 
 ## PARAMETERS
 ### Filter
 You can use the -Filter parameter to search for roles matching values that you specify. A filter should be in the format of a PowerShell hashtable with one or more properties as keys. Note that the filter values should always be strings, and can contain asterisks as wildcards. Acceptable properties to filter on are:
 
-name
-id
+- name
+- id
 
 To learn more about hashtables, run the following command:
 

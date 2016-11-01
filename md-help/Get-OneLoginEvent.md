@@ -4,18 +4,20 @@
 Retrieves events from a OneLogin account
 
 ## DESCRIPTION
-Retrieves events such as logins, role assignments, and password resets from a OneLogin account. 
+Retrieves events such as logins, role assignments, and password resets from a OneLogin account.
 
 ## PARAMETERS
 ### Filter
 Specifies a combination of event properties to filter on. The filter should be in the form of a hashtable with one or more property names as keys. Note that the filter values should always be strings, and can contain asterisks as wildcards. Acceptable keys are:
 
-client_id
-created_at
-directory_id
-event_type_id
-resolution
-user_id
+- client_id
+- created_at
+- directory_id
+- event_type_id
+- resolution
+- user_id
+
+Valid values for event_type_id are available in the enum "OneLogin.EventType." To find out how to use this enum to find the event id integer values, see the examples for this help topic by running: Get-Help -Name Get-OneLoginEvent -Examples
 
 More information about possible event types can be found at https://developers.onelogin.com/api-docs/1/events/event-resource.
 
@@ -65,6 +67,14 @@ Get-OneLoginEvent -Since "9/23/2016" -Until "9/24/2016" -Token $Token
 ```
 
 This example will retrieve all events of any type between 9/23/2016 and 9/24/2016
+
+### --------------  Example 5  --------------
+
+```powershell
+Get-OneLoginEvent -Filter @{event_type_id = [int][OneLogin.EventType]::User_logged_in_to_app} -Token $Token
+```
+
+This example will retrieve all events of type 'User_logged_in_to_app. Note the use of the enum "OneLogin.EventType" to calculate the numerical event id.
 
 ## OUTPUTS
 ### OneLoginEvent
