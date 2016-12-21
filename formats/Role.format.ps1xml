@@ -7,14 +7,13 @@
         <TypeName>OneLogin.Role</TypeName>
       </ViewSelectedBy>
       <TableControl>
+		<AutoSize/>
         <TableHeaders>
           <TableColumnHeader>
             <Label>Name</Label>
-            <Width>24</Width>
           </TableColumnHeader>
           <TableColumnHeader>
             <Label>Id</Label>
-            <Width>24</Width>
           </TableColumnHeader>
         </TableHeaders>
         <TableRowEntries>
