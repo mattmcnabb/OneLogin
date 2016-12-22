@@ -1,4 +1,4 @@
-5@{
+@{
     NestedModules = @('OneLogin.psm1')
     ModuleVersion = '1.0.5'
     GUID = '87e0e33a-1747-4ff2-a812-890565b4f0d1'
