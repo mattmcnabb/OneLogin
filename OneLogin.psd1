@@ -1,6 +1,6 @@
-@{
+5@{
     NestedModules = @('OneLogin.psm1')
-    ModuleVersion = '1.0.4'
+    ModuleVersion = '1.0.5'
     GUID = '87e0e33a-1747-4ff2-a812-890565b4f0d1'
     Author = 'Matt McNabb'
     Copyright = '(c) 2016 . All rights reserved.'
@@ -43,7 +43,8 @@
             ProjectUri = 'https://github.com/mattmcnabb/OneLogin'
             ReleaseNotes = @"
 BUG FIXES
-- Fixed: command help not working - again :(
+- Filter parameters for Get-OneLoginEvent/Role/User don't accept multiple filter properties
+- Filter parameters for Get-OneLoginEvent/Role/User accept null values
 "@
         }
     }
