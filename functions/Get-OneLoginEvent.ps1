@@ -14,6 +14,11 @@ function Get-OneLoginEvent
                     {
                         throw "[$Property] is not a filterable property. Filterable properties are [$($EnumValues -join ', ')]. These properties are CASE-SENSITIVE!"
                     }
+
+                    if (!$_.$Property)
+                    {
+                        throw "Invalid filter value! The value specified for the filter property [$($_.$Property)] is null or empty."
+                    }
                 }
             }
         )]
