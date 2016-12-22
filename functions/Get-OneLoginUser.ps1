@@ -7,14 +7,15 @@ function Get-OneLoginUser
         [CmdletBinding(DefaultParameterSetName = "Filter")]
         [ValidateScript(
             {
-                $Property = $_.GetEnumerator().Name
                 $EnumValues = [OneLogin.UserFilterParameters].GetEnumNames()
-                if ($Property -cin $EnumValues) { $true }
-                else
+                foreach ($Property in $_.GetEnumerator().Name)
                 {
-                    throw "[$Property] is not a filterable property. Filterable properties are [$($EnumValues -join ', ')]. These properties are CASE-SENSITIVE!"
+                    if ($Property -cin $EnumValues) { $true }
+                    else
+                    {
+                        throw "[$Property] is not a filterable property. Filterable properties are [$($EnumValues -join ', ')]. These properties are CASE-SENSITIVE!"
+                    }
                 }
-                
             }
         )]
         [ValidateNotNullOrEmpty()]
