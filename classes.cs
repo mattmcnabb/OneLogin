@@ -141,6 +141,8 @@ namespace OneLogin
         public DateTimeOffset? updated_at {get; set;}
         public string username {get; set;}
         public string userprincipalname {get; set;}
+
+        public override string ToString() { return this.id; }
     }
 
     // enums
