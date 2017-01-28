@@ -15,6 +15,7 @@ function Get-OneLoginUserGroup
     
     process
     {
+        $Identity = Get-OneLoginUser -Identity $Identity.id -Token $Token
         foreach ($Id in $Identity.group_id)
         {
             Get-OneLoginGroup -Identity $Id -Token $Token

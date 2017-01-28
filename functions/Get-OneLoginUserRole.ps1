@@ -15,9 +15,10 @@ function Get-OneLoginUserRole
 
     process
     {
-        foreach ($ID in $Identity.role_id)
+        $Identity = Get-OneLoginUser -Identity $Identity.id -Token $Token
+        foreach ($RoleId in $Identity.role_id)
         {
-            Get-OneLoginRole -Identity $ID -Token $Token
+            Get-OneLoginRole -Identity $RoleId -Token $Token
         }
     }
 }
