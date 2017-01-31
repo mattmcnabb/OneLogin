@@ -1,6 +1,6 @@
 @{
     NestedModules = @('OneLogin.psm1')
-    ModuleVersion = '1.0.5'
+    ModuleVersion = '1.0.6'
     GUID = '87e0e33a-1747-4ff2-a812-890565b4f0d1'
     Author = 'Matt McNabb'
     Copyright = '(c) 2016 . All rights reserved.'
@@ -43,6 +43,11 @@
             ProjectUri = 'https://github.com/mattmcnabb/OneLogin'
             ReleaseNotes = @"
 BUG FIXES
+v1.0.6
+- If you use the -WhatIf parameter with impactful commands (remove,set,add), the typename of the user object is returned instead of the user id - fixed
+- Get-OneLoginUserRole and Get-OneLoginUserGroup sometimes returned incorrect data if you pipe the user object in via a variable - fixed
+
+v1.0.5
 - Filter parameters for Get-OneLoginEvent/Role/User don't accept multiple filter properties
 - Filter parameters for Get-OneLoginEvent/Role/User accept null values
 "@
