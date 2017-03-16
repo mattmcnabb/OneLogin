@@ -1,3 +1,9 @@
+---
+external help file: OneLogin-help.xml
+online version: 
+schema: 2.0.0
+---
+
 # Remove-OneLoginUser
 
 ## SYNOPSIS
@@ -32,3 +38,9 @@ This example shows how to remove a OneLogin user without being prompted for conf
 
 ## INPUTS
 ### OneLoginUser
+
+## OUTPUTS
+
+## NOTES
+
+## RELATED LINKS

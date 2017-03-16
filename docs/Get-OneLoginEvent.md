@@ -1,3 +1,9 @@
+---
+external help file: OneLogin-help.xml
+online version: 
+schema: 2.0.0
+---
+
 # Get-OneLoginEvent
 
 ## SYNOPSIS
@@ -76,5 +82,11 @@ Get-OneLoginEvent -Filter @{event_type_id = [int][OneLogin.EventType]::User_logg
 
 This example will retrieve all events of type 'User_logged_in_to_app. Note the use of the enum "OneLogin.EventType" to calculate the numerical event id.
 
+## INPUTS
+
 ## OUTPUTS
 ### OneLoginEvent
+
+## NOTES
+
+## RELATED LINKS

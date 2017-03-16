@@ -1,14 +1,18 @@
-# Set-OneLoginUser
+---
+external help file: OneLogin-help.xml
+online version: 
+schema: 2.0.0
+---
+
+# New-OneLoginUser
 
 ## SYNOPSIS
-Sets attributes of a OneLogin user.
+Creates a new user in your OneLogin account.
 
 ## DESCRIPTION
-Sets or modifies attributes of an existing OneLogin user.
+Logs a user out of any active OneLogin sessions and any applications provided via OneLogin.
 
 ## PARAMETERS
-###Identity
-Specifies a OneLogin user who you'd like to modify.
 ###firstname
 ###lastname
 ###email
@@ -34,13 +38,19 @@ Specifies a OneLogin user who you'd like to modify.
 A OneLogin API access token that provides authorization for a OneLogin account. To generate an access token, use the New-OneLoginToken command.
 
 ## EXAMPLES
-### --------------  Example 1  --------------
 
+### --------------  Example 1  --------------
 ```powershell
-Get-OneLoginUser -Identity 123456 -Token $Token | Set-OneLoginUser -department Engineering -Token $Token
+New-OneLoginUser -firstname George -lastname Washington -email George.Washington@onelogin.com -username geowash -Token $Token
 ```
 
-This example shows howto modify the department attribute for a OneLogin user.
+This example shows how to create a new OneLogin user.
 
 ## INPUTS
+
+## OUTPUTS
 ### OneLoginUser
+
+## NOTES
+
+## RELATED LINKS

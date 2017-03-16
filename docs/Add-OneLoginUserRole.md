@@ -1,3 +1,9 @@
+---
+external help file: OneLogin-help.xml
+online version: 
+schema: 2.0.0
+---
+
 # Add-OneLoginUserRole
 
 ## SYNOPSIS
@@ -27,3 +33,9 @@ This example demonstrates how to add a role to a user via the pipeline. Get-OneL
 
 ## INPUTS
 ### OneLoginUser
+
+## OUTPUTS
+
+## NOTES
+
+## RELATED LINKS

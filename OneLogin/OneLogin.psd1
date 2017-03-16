@@ -1,6 +1,6 @@
-@{
+﻿@{
     NestedModules = @('OneLogin.psm1')
-    ModuleVersion = '1.0.6'
+    ModuleVersion = '0.1.0'
     GUID = '87e0e33a-1747-4ff2-a812-890565b4f0d1'
     Author = 'Matt McNabb'
     Copyright = '(c) 2016 . All rights reserved.'

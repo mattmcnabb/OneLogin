@@ -1,3 +1,9 @@
+---
+external help file: OneLogin-help.xml
+online version: 
+schema: 2.0.0
+---
+
 # Get-OneLoginUserApp
 
 ## SYNOPSIS
@@ -33,3 +39,7 @@ This example shows how to retrieve all the applications granted to any OneLogin 
 
 ## OUTPUTS
 ### OneLoginApp
+
+## NOTES
+
+## RELATED LINKS

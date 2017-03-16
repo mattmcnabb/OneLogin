@@ -1,3 +1,9 @@
+---
+external help file: OneLogin-help.xml
+online version: 
+schema: 2.0.0
+---
+
 # Get-OneLoginUser
 
 ## SYNOPSIS
@@ -84,5 +90,11 @@ Get-OneLoginUser -Filter @{email = "george.w*"; directory_id = "152884"} -Token 
 
 This example demonstrates how to use the -Filter parameter with more than one property.
 
+## INPUTS
+
 ## OUTPUTS
 ### OneLoginUser
+
+## NOTES
+
+## RELATED LINKS

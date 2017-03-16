@@ -1,3 +1,9 @@
+---
+external help file: OneLogin-help.xml
+online version: 
+schema: 2.0.0
+---
+
 # Remove-OneLoginUserCustomAttribute
 
 ## SYNOPSIS
@@ -34,3 +40,9 @@ This example shows how to remove a custom attribute from a OneLogin user without
 
 ## INPUTS
 ### OneLoginUser
+
+## OUTPUTS
+
+## NOTES
+
+## RELATED LINKS

@@ -1,4 +1,4 @@
-__Build Status:__ [![Build status](https://build.powershell.org/guestAuth/app/rest/builds/buildType:(id:OneLogin_PublishStatusToGitHub)/statusIcon)](https://build.powershell.org/project.html?projectId=OneLogin&tab=projectOverview&guest=1)
+[![Build status](https://ci.appveyor.com/api/projects/status/dktthvk43gwicc7l?svg=true)](https://ci.appveyor.com/project/mattmcnabb/OneLogin)
 
 # OneLogin Module for PowerShell
 

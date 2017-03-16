@@ -1,3 +1,9 @@
+---
+external help file: OneLogin-help.xml
+online version: 
+schema: 2.0.0
+---
+
 # Invoke-OneLoginUserLogoff
 
 ## SYNOPSIS
@@ -22,3 +28,9 @@ Get-OneLoginUser -Identity 123456 -Token $Token | Invoke-OneLoginUserLogoff -Tok
 
 ## INPUTS
 ### OneLoginUser
+
+## OUTPUTS
+
+## NOTES
+
+## RELATED LINKS

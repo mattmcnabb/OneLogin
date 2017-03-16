@@ -1,3 +1,9 @@
+---
+external help file: OneLogin-help.xml
+online version: 
+schema: 2.0.0
+---
+
 # Invoke-OneLoginUserLockout
 
 ## SYNOPSIS
@@ -27,3 +33,9 @@ This example demonstrates how to lock out a user for one hour.
 
 ## INPUTS
 ### OneLoginUser
+
+## OUTPUTS
+
+## NOTES
+
+## RELATED LINKS

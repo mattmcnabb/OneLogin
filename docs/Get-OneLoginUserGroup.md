@@ -1,3 +1,9 @@
+---
+external help file: OneLogin-help.xml
+online version: 
+schema: 2.0.0
+---
+
 # Get-OneLoginUserGroup
 
 ## SYNOPSIS
@@ -34,3 +40,7 @@ This example shows how to retrieve the group membership for multiple users.
 
 ## OUTPUTS
 ### OneLoginGroup
+
+## NOTES
+
+## RELATED LINKS

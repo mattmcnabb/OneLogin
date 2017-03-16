@@ -1,3 +1,9 @@
+---
+external help file: OneLogin-help.xml
+online version: 
+schema: 2.0.0
+---
+
 # New-OneLoginToken
 
 ## SYNOPSIS
@@ -37,5 +43,11 @@ PS c:\> New-OneLoginToken -Credential $Credential -Region us -SetAsDefault
 ```
 In this example, we've created a OneLogin token and set it as the default token for all OneLogin commands. After this, the -Token parameter of the commands from the OneLogin module will not be required.
 
+## INPUTS
+
 ## OUTPUTS
 ### OneLoginToken
+
+## NOTES
+
+## RELATED LINKS

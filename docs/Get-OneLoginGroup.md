@@ -1,3 +1,9 @@
+---
+external help file: OneLogin-help.xml
+online version: 
+schema: 2.0.0
+---
+
 # Get-OneLoginGroup
 
 ## SYNOPSIS
@@ -31,5 +37,11 @@ Get-OneLoginGroup -Identity 19848683 -Token $Token
 
 This example demonstrates how to use the -Identity parameter to return a single group object.
 
+## INPUTS
+
 ## OUTPUTS
 ### OneLoginGroup
+
+## NOTES
+
+## RELATED LINKS

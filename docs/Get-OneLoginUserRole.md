@@ -1,3 +1,9 @@
+---
+external help file: OneLogin-help.xml
+online version: 
+schema: 2.0.0
+---
+
 # Get-OneLoginUserRole
 
 ## SYNOPSIS
@@ -34,3 +40,7 @@ This example shows how to retrieve the role assignments for multiple users.
 
 ## OUTPUTS
 ### OneLoginRole
+
+## NOTES
+
+## RELATED LINKS

@@ -1,3 +1,9 @@
+---
+external help file: OneLogin-help.xml
+online version: 
+schema: 2.0.0
+---
+
 # Set-OneLoginUserCustomAttribute
 
 ## SYNOPSIS
@@ -27,3 +33,9 @@ This example shows howto modify the value of the employeeType custom attribute f
 
 ## INPUTS
 ### OneLoginUser
+
+## OUTPUTS
+
+## NOTES
+
+## RELATED LINKS

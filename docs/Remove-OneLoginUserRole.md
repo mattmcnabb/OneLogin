@@ -1,3 +1,9 @@
+---
+external help file: OneLogin-help.xml
+online version: 
+schema: 2.0.0
+---
+
 # Remove-OneLoginUserRole
 
 ## SYNOPSIS
@@ -36,3 +42,9 @@ This example shows how to remove a role from a OneLogin user without being promp
 
 ## INPUTS
 ### OneLoginUser
+
+## OUTPUTS
+
+## NOTES
+
+## RELATED LINKS

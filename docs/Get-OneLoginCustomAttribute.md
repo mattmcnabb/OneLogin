@@ -1,3 +1,9 @@
+---
+external help file: OneLogin-help.xml
+online version: 
+schema: 2.0.0
+---
+
 # Get-OneLoginCustomAttribute
  
 ## SYNOPSIS
@@ -18,5 +24,11 @@ PS C:\> Get-OneLoginCustomAttribute -Token $Token
 ```
 This example will return the names of all custom attributes configured in your OneLogin account.
 
+## INPUTS
+
 ## OUTPUTS
 ### System.String
+
+## NOTES
+
+## RELATED LINKS

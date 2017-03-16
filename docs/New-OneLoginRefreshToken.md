@@ -1,3 +1,9 @@
+---
+external help file: OneLogin-help.xml
+online version: 
+schema: 2.0.0
+---
+
 # New-OneLoginToken
 
 ## SYNOPSIS
@@ -35,5 +41,11 @@ PS c:\> New-OneLoginRefreshToken -Token $Token -SetAsDefault
 ```
 This example demonstrates how to refresh an existing OneLogin token and set it as the default token value for subsequent calls to OneLogin commands. This is recommended if you originally created the token using the -SetAsDefault switch.
 
+## INPUTS
+
 ## OUTPUTS
 ### OneLoginToken
+
+## NOTES
+
+## RELATED LINKS
