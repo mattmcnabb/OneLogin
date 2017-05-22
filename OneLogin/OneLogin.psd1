@@ -1,11 +1,11 @@
 ﻿@{
-    NestedModules = @('OneLogin.psm1')
-    ModuleVersion = '0.1.0'
-    GUID = '87e0e33a-1747-4ff2-a812-890565b4f0d1'
-    Author = 'Matt McNabb'
-    Copyright = '(c) 2016 . All rights reserved.'
-    Description = 'A PowerShell module for automating components of a OneLogin account.'
-    PowerShellVersion = '5.0'
+    NestedModules = @("OneLogin.psm1")
+    ModuleVersion = "0.1.0"
+    GUID = "87e0e33a-1747-4ff2-a812-890565b4f0d1"
+    Author = "Matt McNabb"
+    Copyright = "(c) 2016 . All rights reserved."
+    Description = "A PowerShell module for automating components of a OneLogin account."
+    PowerShellVersion = "5.0"
     FormatsToProcess = @(
         "formats\App.format.ps1xml",
         "formats\Event.format.ps1xml",
@@ -38,9 +38,9 @@
 
     PrivateData = @{
         PSData = @{
-            Tags = 'OneLogin','REST','IAM','Identity'
-            LicenseUri = 'http://opensource.org/licenses/MIT'
-            ProjectUri = 'https://github.com/mattmcnabb/OneLogin'
+            Tags = "OneLogin","REST","IAM","Identity"
+            LicenseUri   = "https://github.com/mattmcnabb/OneLogin/blob/master/OneLogin/license"
+            ProjectUri = "https://github.com/mattmcnabb/OneLogin"
             ReleaseNotes = @"
 BUG FIXES
 v1.0.6
@@ -48,12 +48,12 @@ v1.0.6
 - Get-OneLoginUserRole and Get-OneLoginUserGroup sometimes returned incorrect data if you pipe the user object in via a variable - fixed
 
 v1.0.5
-- Filter parameters for Get-OneLoginEvent/Role/User don't accept multiple filter properties
+- Filter parameters for Get-OneLoginEvent/Role/User don"t accept multiple filter properties
 - Filter parameters for Get-OneLoginEvent/Role/User accept null values
 "@
         }
     }
 
     # HelpInfo URI of this module
-    # HelpInfoURI = ''
+    # HelpInfoURI = ""
 }

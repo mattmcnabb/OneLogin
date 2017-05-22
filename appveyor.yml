@@ -1,4 +1,4 @@
-version: 1.0.{build}
+version: 0.1.{build}
 
 skip_commits:
   message: /update readme.*/
@@ -12,12 +12,13 @@ install:
 build: false
 
 build_script:
-  - ps: . ./build.ps1
+  - ps: . ./build/build.ps1
 
 deploy_script:
-  - ps: . ./deploy.ps1
+  - ps: . ./build/deploy.ps1
 
 environment:
   PSGallery_Api_Key:
     secure: 0EePWivW8cgi5NAGuTYlskxb7W07x0xAhIrs5XumYoGibUTOkHhKBvqGhx/mg9h8
-  Build_Path: c:/temp/$(appveyor_project_name)/
+    
+
