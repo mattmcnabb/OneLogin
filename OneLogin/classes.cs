@@ -173,6 +173,7 @@ namespace OneLogin
         email,
         external_id,
         firstname,
+        lastname,
         manager_ad_id,
         role_id,
         samaccountname,

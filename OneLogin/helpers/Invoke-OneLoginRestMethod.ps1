@@ -44,7 +44,7 @@ function Invoke-OneLoginRestMethod
             else { $Body = @{} }
 
 
-            $Response = Invoke-RestMethod @Splat -ErrorAction Stop
+            $Response = @(Invoke-RestMethod @Splat -ErrorAction Stop)
             $Response.Data
         }
         catch
