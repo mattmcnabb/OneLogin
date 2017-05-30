@@ -81,9 +81,8 @@ function New-OneLoginUser
         Body     = $Body
     }
 
-    $OutputType = $MyInvocation.MyCommand.OutputType.Type
     if ($PSCmdlet.ShouldProcess($Identity, $MyInvocation.MyCommand.Name))
     {
-        Invoke-OneLoginRestMethod @Splat | Foreach-Object { if ($_) {$_ -as $OutputType} }
+        [OneLogin.User](Invoke-OneLoginRestMethod @Splat)
     }
 }

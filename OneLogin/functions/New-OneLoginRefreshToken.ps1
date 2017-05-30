@@ -28,23 +28,15 @@ function New-OneLoginRefreshToken
         ContentType = 'application/json'
     }
 
-    $OutputType = $MyInvocation.MyCommand.OutputType.Type
     if ($PSCmdlet.ShouldProcess($Identity, $MyInvocation.MyCommand.Name))
     {
-        $Token = Invoke-RestMethod @Splat |
-        Select-Object -ExpandProperty Data |
-        Select-Object account_id,
-                      created_at,
-                      expires_in,
-                      token_type,
-                      access_token,
-                      refresh_token,
-                      @{
-                          Label = "ApiBase"
-                          Expression = {$Token.ApiBase}
-                       } | Foreach-Object { if ($_) {$_ -as $OutputType} }
-                       
-        $Token
-        if ($SetAsDefault) { Set-OneLoginDefaultToken -Token $Token }
+        $RefreshToken = [OneLogin.Token](
+            Invoke-RestMethod @Splat | Select-Object -ExpandProperty Data
+        )
+        $RefreshToken.ApiBase = $Token.ApiBase
+
+        $RefreshToken
+        
+        if ($SetAsDefault) { Set-OneLoginDefaultToken -Token $RefreshToken }
     }
 }

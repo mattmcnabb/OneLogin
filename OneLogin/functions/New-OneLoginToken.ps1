@@ -33,15 +33,10 @@ function New-OneLoginToken
         ContentType = 'application/json'
     }
 
-    $OutputType = $MyInvocation.MyCommand.OutputType.Type
-    $Token = Invoke-RestMethod @Splat |
-        Select-Object -ExpandProperty Data |
-        Select-Object account_id, created_at, expires_in,
-                      token_type, access_token, refresh_token,
-                      @{
-                          Label = "ApiBase"
-                          Expression = {$ApiBase}
-                       } | Foreach-Object { if ($_) {$_ -as $OutputType} }
+    $Token = [OneLogin.Token](
+        Invoke-RestMethod @Splat | Select-Object -ExpandProperty Data
+    )
+    $Token.ApiBase = $ApiBase
     
     $Token
     
