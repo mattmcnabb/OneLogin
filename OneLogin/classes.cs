@@ -122,6 +122,7 @@ namespace OneLogin
         public string phone {get; set;}
         public string[] role_id {get; set;}
         public string samaccountname {get; set;}
+        public string state {get; set;}
         public string status {get; set;}
         public string status_value
         {
