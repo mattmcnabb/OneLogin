@@ -43,7 +43,7 @@
             ProjectUri = "https://github.com/mattmcnabb/OneLogin"
             ReleaseNotes = @"
 
-v1.0.7
+v1.0.10
 Features
 - added the ability to filter for users by last name
 Bug fixes
