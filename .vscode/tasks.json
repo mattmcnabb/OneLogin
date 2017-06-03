@@ -30,9 +30,10 @@
                 "${workspaceRoot}\\build\\build.ps1"
             ],
             "isBuildCommand": true,
-            "isShellCommand": true,
+            //"isShellCommand": true,
             "showOutput": "always",
-            "suppressTaskName": true
+            "suppressTaskName": true,
+            "problemMatcher": "$pester"
         }
     ]
 }

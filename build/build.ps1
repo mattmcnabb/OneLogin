@@ -28,5 +28,5 @@ $null = New-Item -ItemType Directory -Path $DocsOutPutPath -Force
 $null = New-ExternalHelp -Path $DocsPath -OutPutPath $DocsOutPutPath -Encoding ([System.Text.Encoding]::UTF8) -Force
 
 # run tests
-Invoke-Pester -EnableExit:$TestExit
+Invoke-Pester -EnableExit:$TestExit -PesterOption @{IncludeVSCodeMarker = $true}
 
