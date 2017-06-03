@@ -20,6 +20,7 @@ You can use the -Filter parameter to search for users matching values that you s
 - email
 - external_id
 - firstname
+- lastname
 - manager_ad_id
 - role_id
 - samaccountname
@@ -85,7 +86,7 @@ This example demonstrates how to use the -Filter parameter to return any users w
 ### --------------  Example 5  --------------
 
 ```powershell
-Get-OneLoginUser -Filter @{email = "george.w*"; directory_id = "152884"} -Token $Token
+Get-OneLoginUser -Filter @{firstname = "george"; lastname = "wash*"} -Token $Token
 ```
 
 This example demonstrates how to use the -Filter parameter with more than one property.
