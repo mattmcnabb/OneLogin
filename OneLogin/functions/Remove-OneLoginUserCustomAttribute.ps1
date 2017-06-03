@@ -9,23 +9,18 @@ function Remove-OneLoginUserCustomAttribute
 
         [Parameter(Mandatory = $true)]
         [string[]]
-        $CustomAttributes,
-
-        [Parameter(Mandatory = $true)]
-        [OneLogin.Token]
-        $Token
+        $CustomAttributes
     )
     
     begin
     {
-        $CustomAttributes = Get-OneLoginCustomAttribute -Token $Token | Where {$_ -in $CustomAttributes}
+        $CustomAttributes = Get-OneLoginCustomAttribute | Where {$_ -in $CustomAttributes}
         $Body = @{ custom_attributes = @{} }
         foreach ($Attribute in $CustomAttributes)
         {
             $Body["custom_attributes"][$Attribute] = [string]::Empty
         }
         $Splat = @{
-            Token  = $Token
             Method = "Put"
             Body   = $Body
         }

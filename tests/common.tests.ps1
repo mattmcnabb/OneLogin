@@ -70,7 +70,7 @@ Pester\Describe "Manifest" {
     Pester\It 'exports all public functions' {
         $FunctionFiles = Get-ChildItem "$ModulePath\functions" -Filter *.ps1 | Select-Object -ExpandProperty basename
         $FunctionNames = $FunctionFiles
-        $ManifestHash.FunctionsToExport | Should Be $FunctionNames
+        Compare-Object $ManifestHash.FunctionsToExport $FunctionNames | Should BeNullOrEmpty
     }
     
     Pester\It 'has a valid license Uri' {

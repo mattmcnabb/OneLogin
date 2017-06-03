@@ -20,17 +20,12 @@ function Set-OneLoginUserCustomAttribute
             }
         )]
         [hashtable]
-        $CustomAttributes,
-
-        [Parameter(Mandatory = $true)]
-        [OneLogin.Token]
-        $Token
+        $CustomAttributes
     )
     
     begin
     {
         $Splat = @{
-            Token  = $Token
             Method = "Put"
             Body   = @{custom_attributes = $CustomAttributes}
         }

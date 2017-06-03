@@ -15,6 +15,8 @@
         "formats\User.format.ps1xml"
     )
     FunctionsToExport = @(
+        
+        "Connect-OneLogin",
         "Add-OneLoginUserRole",
         "Get-OneLoginCustomAttribute",
         "Get-OneLoginEvent",
@@ -26,8 +28,6 @@
         "Get-OneLoginUserRole",
         "Invoke-OneLoginUserLockout"
         "Invoke-OneLoginUserLogoff",
-        "New-OneLoginRefreshToken",
-        "New-OneLoginToken",
         "New-OneLoginUser",
         "Remove-OneLoginUser",
         "Remove-OneLoginUserCustomAttribute",

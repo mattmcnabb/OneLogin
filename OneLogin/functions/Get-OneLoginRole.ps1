@@ -33,15 +33,10 @@ function Get-OneLoginRole
 
         [Parameter(ParameterSetName = "All")]
         [switch]
-        $All,
-
-        [ValidateNotNullOrEmpty()]
-        [OneLogin.Token]
-        $Token
+        $All
     )
     
     $Splat = @{
-        Token    = $Token
         Endpoint = "api/1/roles"
     }
     
@@ -60,7 +55,7 @@ function Get-OneLoginRole
 
     try
     {
-        [OneLogin.Role[]](Invoke-OneLoginRestMethod @Splat)
+        Invoke-OneLoginRestMethod @Splat | Foreach-Object { [OneLogin.Role[]]$_ }
     }
     catch [System.Management.Automation.PSInvalidCastException]
     {

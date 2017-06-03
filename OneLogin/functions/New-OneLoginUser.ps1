@@ -66,16 +66,12 @@ function New-OneLoginUser
         $title,
 
         [string]
-        $userprincipalname,
-
-        [OneLogin.Token]
-        $Token
+        $userprincipalname
     )
     
-    $Body = Get-BoundParameter -BoundParameters $PSBoundParameters -ExcludedParameters Token
+    $Body = Get-BoundParameter -BoundParameters $PSBoundParameters
 
     $Splat = @{
-        Token    = $Token
         Method   = "Post"
         Endpoint = "api/1/users"
         Body     = $Body

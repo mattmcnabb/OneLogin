@@ -65,8 +65,7 @@ Describe "Functions" {
             # make sure you can pass multiple filter properties
             Pester\It "accepts multiple filter properties" {
                 Pester\Mock -CommandName Invoke-RestMethod -MockWith {[PSCustomObject]@{}}
-                $Token = [OneLogin.Token]::new()
-                { Get-OneLoginEvent -Filter @{user_id = "123456"; directory_id = "56789" } -Token $Token} | Pester\Should Not Throw
+                { Get-OneLoginEvent -Filter @{user_id = "123456"; directory_id = "56789" } } | Pester\Should Not Throw
             }
         }
 
@@ -74,8 +73,7 @@ Describe "Functions" {
             # make sure you can pass multiple filter properties
             Pester\It "accepts multiple filter properties" {
                 Pester\Mock -CommandName Invoke-RestMethod -MockWith {[PSCustomObject]@{}}
-                $Token = [OneLogin.Token]::new()
-                { Get-OneLoginUser -Filter @{firstname = "Matt"; email = "matt@domain.com" } -Token $Token} | Pester\Should Not Throw
+                { Get-OneLoginUser -Filter @{firstname = "Matt"; email = "matt@domain.com" } } | Pester\Should Not Throw
             }
         }
     }

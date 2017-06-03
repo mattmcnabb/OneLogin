@@ -6,19 +6,15 @@ function Get-OneLoginUserGroup
     (
         [Parameter(Mandatory, ValueFromPipeline)]
         [OneLogin.User]
-        $Identity,
-
-        [Parameter(Mandatory)]
-        [OneLogin.Token]
-        $Token
+        $Identity
     )
     
     process
     {
-        $Identity = Get-OneLoginUser -Identity $Identity.id -Token $Token
+        $Identity = Get-OneLoginUser -Identity $Identity.id
         foreach ($Id in $Identity.group_id)
         {
-            Get-OneLoginGroup -Identity $Id -Token $Token
+            Get-OneLoginGroup -Identity $Id
         }
     }
 }

@@ -9,17 +9,12 @@ function Add-OneLoginUserRole
 
         [Parameter(Mandatory = $true)]
         [int[]]
-        $RoleId,
-
-        [Parameter(Mandatory = $true)]
-        [OneLogin.Token]
-        $Token
+        $RoleId
     )
     
     begin
     {
         $Splat = @{
-            Token    = $Token
             Method   = "Put"
             Body     = @{role_id_array = @($RoleId)}
         }

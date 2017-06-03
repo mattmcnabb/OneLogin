@@ -8,11 +8,6 @@ function Set-OneLoginUser
         [OneLogin.User]
         $Identity,
 
-        [Parameter(Mandatory)]
-        [ValidateNotNullOrEmpty()]
-        [OneLogin.Token]
-        $Token,
-
         [string]
         $company,
 
@@ -76,10 +71,9 @@ function Set-OneLoginUser
     
     begin
     {
-        $Body = Get-BoundParameter -BoundParameters $PSBoundParameters -ExcludedParameters Identity, Token
+        $Body = Get-BoundParameter -BoundParameters $PSBoundParameters -ExcludedParameters Identity
 
         $Splat = @{
-            Token  = $Token
             Method = "Put"
             Body   = $Body
         }
