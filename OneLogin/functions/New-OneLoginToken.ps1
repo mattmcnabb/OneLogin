@@ -10,7 +10,7 @@ function New-OneLoginToken
         $Credential,
 
         [Parameter(Mandatory)]
-        [OneLogin.AdminRegions]
+        [OneLogin.AdminRegion]
         $Region,
 
         [switch]

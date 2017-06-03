@@ -6,7 +6,7 @@ function Get-OneLoginEvent
     (
         [ValidateScript(
             {
-                $EnumValues = [OneLogin.EventParameters].GetEnumNames()
+                $EnumValues = [OneLogin.EventFilterParameter].GetEnumNames()
                 foreach ($Property in $_.GetEnumerator().Name)
                 {
                     if ($Property -cin $EnumValues) { $true }

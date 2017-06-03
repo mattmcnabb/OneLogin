@@ -7,7 +7,7 @@ function Get-OneLoginRole
         [Parameter(ParameterSetName = "Filter")]
         [ValidateScript(
             {
-                $EnumValues = [OneLogin.RoleParameters].GetEnumNames()
+                $EnumValues = [OneLogin.RoleFilterParameter].GetEnumNames()
                 foreach ($Property in $_.GetEnumerator().Name)
                 {
                     if ($Property -cin $EnumValues) { $true }
