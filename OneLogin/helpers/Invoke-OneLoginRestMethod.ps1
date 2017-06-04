@@ -41,7 +41,7 @@ function Invoke-OneLoginRestMethod
 
 
             $Response = Invoke-RestMethod @Splat -ErrorAction Stop 
-            $Response | Select-Object -ExpandProperty Data
+            $Response.Data
         }
         catch
         {
