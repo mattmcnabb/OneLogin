@@ -16,21 +16,18 @@ Use Add-OneLoginUserRole to add one or more roles to a OneLoginLists the OneLogi
 ### Identity
 Specifies the OneLogin user whose apps you'd like to query.
 
-### Token
-A OneLogin API access token that provides authorization for a OneLogin account. To generate an access token, use the New-OneLoginToken command.
-
 ## EXAMPLES
 ### --------------  Example 1  --------------
 
 ```powershell
-PS C:\> Get-OneLoginUser -Identity 12345678 -Token $Token | Get-OneLoginUserApp -Token $Token
+PS C:\> Get-OneLoginUser -Identity 12345678 | Get-OneLoginUserApp
 ```
 This example shows how to retrieve all the applications granted to a OneLogin user.
 
 ### --------------  Example 2  --------------
 
 ```powershell
-PS C:\> Get-OneLoginUser -Filter @{email = "Ronald*"} -Token $Token | Get-OneLoginUserApp -Token $Token
+PS C:\> Get-OneLoginUser -Filter @{email = "Ronald*"} | Get-OneLoginUserApp
 ```
 This example shows how to retrieve all the applications granted to any OneLogin user whose email address begins with "Ronald". 
 

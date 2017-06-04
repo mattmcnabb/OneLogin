@@ -16,14 +16,11 @@ Removes a user from your OneLogin account.
 ###Identity
 Specifies a OneLogin user you'd like to remove.
 
-### Token
-A OneLogin API access token that provides authorization for a OneLogin account. To generate an access token, use the New-OneLoginToken command.
-
 ## EXAMPLES
 ### --------------  Example 1  --------------
 
 ```powershell
-Get-OneLoginUser -Identity 123456 -Token $Token | Remove-OneLoginUser -Token $Token
+Get-OneLoginUser -Identity 123456 | Remove-OneLoginUser
 ```
 
 This example shows how to remove a OneLogin user. Note that you'll be prompted to confirm that you'd like to take this action.
@@ -31,7 +28,7 @@ This example shows how to remove a OneLogin user. Note that you'll be prompted t
 ### --------------  Example 2  --------------
 
 ```powershell
-Get-OneLoginUser -Identity 123456 -Token $Token | Remove-OneLoginUser -Confirm:$false -Token $Token
+Get-OneLoginUser -Identity 123456 | Remove-OneLoginUser -Confirm:$false
 ```
 
 This example shows how to remove a OneLogin user without being prompted for confirmation.

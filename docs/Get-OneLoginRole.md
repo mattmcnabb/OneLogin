@@ -31,15 +31,11 @@ Specifies the numeric id of a OneLogin role.
 ### All
 Specifies tthat you would like to return all roles in your OneLogin account. This parameter cannot be used with -Filter or -Identity.
 
-### Token
-A OneLogin API access token that provides authorization for a OneLogin account. To generate an access token, use the New-OneLoginToken command.
-
-
 ## EXAMPLES
 ### --------------  Example 1  --------------
 
 ```powershell
-Get-OneLoginRole -All -Token $Token
+Get-OneLoginRole -All
 ```
 
 This example returns all roles in the OneLogin account.
@@ -47,7 +43,7 @@ This example returns all roles in the OneLogin account.
 ### --------------  Example 2  --------------
 
 ```powershell
-Get-OneLoginRole -Identity 19848683 -Token $Token
+Get-OneLoginRole -Identity 19848683
 ```
 
 This example demonstrates how to use the -Identity parameter to return a single role object.
