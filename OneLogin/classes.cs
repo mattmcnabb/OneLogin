@@ -14,6 +14,20 @@ namespace OneLogin
         public bool provisioned {get; set;}
     }
 
+    public class ApiRateLimit
+    {
+        public int RateLimit {get; set;}
+        public int RateLimitRemaining {get; set;}
+        public TimeSpan RateLimitReset {get; set;}
+
+        public ApiRateLimit (int RateLimit, int RateLimitRemaining, int RateLimitReset)
+        {
+            this.RateLimit = RateLimit;
+            this.RateLimitRemaining = RateLimitRemaining;
+            this.RateLimitReset = new TimeSpan(0, 0, RateLimitReset);
+        }
+    }
+
     public class Event
     {
         public string account_id {get; set;}
