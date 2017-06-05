@@ -16,6 +16,10 @@ $ManifestPath = Join-Path $ModulePath "$ModuleName.psd1"
 if (Get-Module -Name $ModuleName) { Remove-Module $ModuleName -Force }
 Import-Module $ManifestPath -Force
 
+$Content = Get-Content -Path $ManifestPath -Raw
+$SB = [scriptblock]::Create($Content)
+$ManifestHash = & $SB
+
 Pester\Describe 'PSScriptAnalyzer' {
     Pester\It "passes Invoke-ScriptAnalyzer" {
         $AnalyzeSplat = @{
@@ -28,19 +32,30 @@ Pester\Describe 'PSScriptAnalyzer' {
 }
 
 Pester\Describe "Docs" {
+    $DocsMDPath = Join-Path $ProjectPath "docs"
+    $DocsMamlPath = Join-Path $ModulePath "en-US"
+    $DocMamlPath = Join-Path $DocsMamlPath "$ModuleName-help.xml"
+    $DocsMD = Get-ChildItem $DocsMDPath -Filter *.md
+    $FunctionDocsMD = $DocsMD | Where-Object Name -NotLike "about*" 
+    $AboutDocsMD = $DocsMD | Where-Object Name -like 'about*'
+    
+
     Pester\It "help file exists" {
-        $DocsPath = Join-Path $ModulePath "en-US"
-        $Doc = Join-Path $DocsPath "$ModuleName-help.xml"
-        Test-Path $Doc | Should Be $true
+        Test-Path $DocMamlPath | Should Be $true
+    }
+
+    Pester\It "has one help file per exported function" {
+        Compare-Object $ManifestHash.FunctionsToExport $FunctionDocsMD.BaseName | Should BeNullOrEmpty
+    }
+
+    Pester\It "has at least one 'about*' topic" {
+        $AboutDocsMD | Should Not BeNullOrEmpty
     }
 }
 
 # test the module manifest - exports the right functions, processes the right formats, and is generally correct
 Pester\Describe "Manifest" {
-    $Content = Get-Content -Path $ManifestPath -Raw
-    $SB = [scriptblock]::Create($Content)
-    $ManifestHash = & $SB
-
+    
     Pester\It "has a valid manifest" {
         {
             $null = Test-ModuleManifest -Path $ManifestPath -ErrorAction Stop -WarningAction SilentlyContinue
