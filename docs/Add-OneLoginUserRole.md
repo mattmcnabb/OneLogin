@@ -36,3 +36,5 @@ This example demonstrates how to add a role to a user via the pipeline. Get-OneL
 ## NOTES
 
 ## RELATED LINKS
+[OneLogin roles](https://developers.onelogin.com/api-docs/1/roles/get-roles)
+[OneLogin users](https://developers.onelogin.com/api-docs/1/users/user-resource)

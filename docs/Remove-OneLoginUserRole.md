@@ -45,3 +45,5 @@ This example shows how to remove a role from a OneLogin user without being promp
 ## NOTES
 
 ## RELATED LINKS
+[OneLogin roles](https://developers.onelogin.com/api-docs/1/roles/get-roles)
+[OneLogin user roles](https://developers.onelogin.com/api-docs/1/users/get-roles-for-user)

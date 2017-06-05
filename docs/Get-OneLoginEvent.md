@@ -87,3 +87,4 @@ This example will retrieve all events of type 'User_logged_in_to_app. Note the u
 ## NOTES
 
 ## RELATED LINKS
+[OneLogin events](https://developers.onelogin.com/api-docs/1/events/event-resource)

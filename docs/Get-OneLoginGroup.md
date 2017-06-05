@@ -41,3 +41,4 @@ This example demonstrates how to use the -Identity parameter to return a single 
 ## NOTES
 
 ## RELATED LINKS
+[OneLogin groups](https://developers.onelogin.com/api-docs/1/groups/get-groups)

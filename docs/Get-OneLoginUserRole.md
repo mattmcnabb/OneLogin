@@ -41,3 +41,5 @@ This example shows how to retrieve the role assignments for multiple users.
 ## NOTES
 
 ## RELATED LINKS
+[OneLogin roles](https://developers.onelogin.com/api-docs/1/roles/get-roles)
+[OneLogin user roles](https://developers.onelogin.com/api-docs/1/users/get-roles-for-user)

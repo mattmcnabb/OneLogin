@@ -41,3 +41,4 @@ This example shows how to remove a OneLogin user without being prompted for conf
 ## NOTES
 
 ## RELATED LINKS
+[OneLogin users](https://developers.onelogin.com/api-docs/1/users/user-resource)

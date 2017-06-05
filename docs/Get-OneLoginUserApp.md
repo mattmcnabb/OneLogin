@@ -40,3 +40,4 @@ This example shows how to retrieve all the applications granted to any OneLogin 
 ## NOTES
 
 ## RELATED LINKS
+[OneLogin user apps](https://developers.onelogin.com/api-docs/1/users/get-apps-for-user)

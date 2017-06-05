@@ -30,3 +30,5 @@ This example will return the names of all custom attributes configured in your O
 ## NOTES
 
 ## RELATED LINKS
+[OneLogin users](https://developers.onelogin.com/api-docs/1/users/user-resource)
+[OneLogin custom attributes](https://developers.onelogin.com/api-docs/1/users/get-custom-attributes)

@@ -43,3 +43,5 @@ This example shows how to remove a custom attribute from a OneLogin user without
 ## NOTES
 
 ## RELATED LINKS
+[OneLogin users](https://developers.onelogin.com/api-docs/1/users/user-resource)
+[OneLogin custom attributes](https://developers.onelogin.com/api-docs/1/users/get-custom-attributes)

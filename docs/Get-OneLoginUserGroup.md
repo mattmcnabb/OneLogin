@@ -41,3 +41,4 @@ This example shows how to retrieve the group membership for multiple users.
 ## NOTES
 
 ## RELATED LINKS
+[OneLogin groups](https://developers.onelogin.com/api-docs/1/groups/get-groups)

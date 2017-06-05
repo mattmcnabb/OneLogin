@@ -53,3 +53,4 @@ This example shows howto modify the department attribute for a OneLogin user.
 ## NOTES
 
 ## RELATED LINKS
+[OneLogin users](https://developers.onelogin.com/api-docs/1/users/user-resource)

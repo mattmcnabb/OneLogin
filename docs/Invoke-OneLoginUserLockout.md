@@ -36,3 +36,4 @@ This example demonstrates how to lock out a user for one hour.
 ## NOTES
 
 ## RELATED LINKS
+[OneLogin user lockout](https://developers.onelogin.com/api-docs/1/users/lock-user-account)

@@ -31,3 +31,4 @@ Get-OneLoginUser -Identity 123456 | Invoke-OneLoginUserLogoff
 ## NOTES
 
 ## RELATED LINKS
+[OneLogin user logoff](https://developers.onelogin.com/api-docs/1/users/log-user-out)
