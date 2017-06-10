@@ -15,6 +15,14 @@ Import-Module $MocksPath -Force
 
 Describe "Get-OneLoginCustomAttribute" {
     InModuleScope "OneLogin" {
-        
+        Mock Invoke-RestMethod { New-CustomAttributeMock }
+
+        It "outputs string values" {
+            Get-OneLoginCustomAttribute | Should BeOfType [System.String]
+        }
+
+        It "outputs an array" {
+            (Get-OneLoginCustomAttribute).Count | Should Be 2
+        }
     }
 }

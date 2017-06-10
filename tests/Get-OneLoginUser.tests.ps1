@@ -15,13 +15,18 @@ Import-Module $MocksPath -Force
 
 Describe "Get-OneLoginUser" {
     InModuleScope "OneLogin" {
+        Mock Invoke-RestMethod { New-UserMock }
+
         It "accepts multiple filter properties" {
-            Mock -CommandName Invoke-RestMethod -MockWith {[PSCustomObject]@{Data = $null}}
             { Get-OneLoginUser -Filter @{firstname = "Matt"; email = "matt@domain.com" } } | Should Not Throw
         }
 
         It "returns a user object" {
-            
+            Get-OneLoginUser -Identity 12345 | Should BeOfType [OneLogin.User]
+        }
+
+        It "calculates status value" {
+            (Get-OneLoginUser -Identity 12345).status_value | Should Be "Active"
         }
     }
 }

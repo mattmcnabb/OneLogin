@@ -15,6 +15,10 @@ Import-Module $MocksPath -Force
 
 Describe "Get-OneLoginGroup" {
     InModuleScope "OneLogin" {
+        Mock Invoke-RestMethod { New-GroupMock }
 
+        It "outputs a group object" {
+            Get-OneLoginGroup -Identity 13579 | Should BeOfType [OneLogin.Group]
+        }
     }
 }
