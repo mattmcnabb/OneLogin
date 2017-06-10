@@ -16,8 +16,8 @@ $ManifestPath = Join-Path $ModulePath "$ModuleName.psd1"
 if (Get-Module -Name $ModuleName) { Remove-Module $ModuleName -Force }
 Import-Module $ManifestPath -Force
 
-Pester\Describe 'PSScriptAnalyzer' {
-    Pester\It "passes Invoke-ScriptAnalyzer" {
+Describe 'PSScriptAnalyzer' {
+    It "passes Invoke-ScriptAnalyzer" {
         $AnalyzeSplat = @{
             Path        = $ModulePath
             ExcludeRule = "PSUseDeclaredVarsMoreThanAssignments"
@@ -27,8 +27,8 @@ Pester\Describe 'PSScriptAnalyzer' {
     }
 }
 
-Pester\Describe "Docs" {
-    Pester\It "help file exists" {
+Describe "Docs" {
+    It "help file exists" {
         $DocsPath = Join-Path $ModulePath "en-US"
         $Doc = Join-Path $DocsPath "$ModuleName-help.xml"
         Test-Path $Doc | Should Be $true
@@ -36,52 +36,52 @@ Pester\Describe "Docs" {
 }
 
 # test the module manifest - exports the right functions, processes the right formats, and is generally correct
-Pester\Describe "Manifest" {
+Describe "Manifest" {
     $Content = Get-Content -Path $ManifestPath -Raw
     $SB = [scriptblock]::Create($Content)
     $ManifestHash = & $SB
 
-    Pester\It "has a valid manifest" {
+    It "has a valid manifest" {
         {
             $null = Test-ModuleManifest -Path $ManifestPath -ErrorAction Stop -WarningAction SilentlyContinue
         } | Should Not Throw
     }
 
-    Pester\It "has a valid nested module" {
+    It "has a valid nested module" {
         $ManifestHash.NestedModules | Should Be "$ModuleName.psm1"
     }
 
-    Pester\It "has a valid Description" {
+    It "has a valid Description" {
         $ManifestHash.Description | Should Not BeNullOrEmpty
     }
 
-    Pester\It "has a valid guid" {
+    It "has a valid guid" {
         $ManifestHash.Guid | Should Be "87e0e33a-1747-4ff2-a812-890565b4f0d1"
     }
 
-    Pester\It "has a valid version" {
+    It "has a valid version" {
         $ManifestHash.ModuleVersion | Should Be $Version
     }
 
-    Pester\It "has a valid copyright" {
+    It "has a valid copyright" {
         $ManifestHash.CopyRight | Should Not BeNullOrEmpty
     }
 
-    Pester\It 'exports all public functions' {
+    It 'exports all public functions' {
         $FunctionFiles = Get-ChildItem "$ModulePath\functions" -Filter *.ps1 | Select-Object -ExpandProperty basename
         $FunctionNames = $FunctionFiles
         Compare-Object $ManifestHash.FunctionsToExport $FunctionNames | Should BeNullOrEmpty
     }
     
-    Pester\It 'has a valid license Uri' {
+    It 'has a valid license Uri' {
         $ManifestHash.PrivateData.Values.LicenseUri | Should Be "https://github.com/mattmcnabb/OneLogin/blob/master/OneLogin/license"
     }
     
-    Pester\It 'has a valid project Uri' {
+    It 'has a valid project Uri' {
         $ManifestHash.PrivateData.Values.ProjectUri | Should Be "https://github.com/mattmcnabb/OneLogin"
     }
     
-    Pester\It "gallery tags don't contain spaces" {
+    It "gallery tags don't contain spaces" {
         foreach ($Tag in $ManifestHash.PrivateData.Values.tags)
         {
             $Tag -notmatch '\s' | Should Be $true
