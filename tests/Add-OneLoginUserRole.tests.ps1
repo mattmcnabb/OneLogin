@@ -1,14 +1,12 @@
-if ($env:APPVEYOR)
-{
-    $ModuleName = $env:Appveyor_Project_Name
-}
-else
-{
-    $ProjectPath = Split-Path $PSScriptRoot
-    $MocksPath = Join-Path $PSScriptRoot "mocks"
-    $ModuleName = Split-Path $ProjectPath -Leaf
-}
-
+$ProjectPath = Split-Path $PSScriptRoot
+$ModuleName = Split-Path $ProjectPath -Leaf
 $ModulePath = Join-Path $ProjectPath $ModuleName
+$MocksPath = Join-Path $PSScriptRoot "mocks"
 Import-Module $ModulePath -Force
 Import-Module $MocksPath -Force
+
+Describe "Add-OneLoginUserRole" {
+    InModuleScope "OneLogin" {
+        
+    }
+}
