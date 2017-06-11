@@ -108,9 +108,7 @@ function Get-CommonParameter
     [CmdletBinding()]
     param()
 
-    $MyInvocation.MyCommand.ParameterSets.Parameters |
-        Where-Object Position -eq -2147483648 |
-        Select-Object -ExpandProperty Name
+    [System.Management.Automation.Cmdlet]::CommonParameters
 }
 
 function New-ApiRateLimitMock
