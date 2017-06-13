@@ -26,7 +26,7 @@ function New-UserMock
             openid_name            = $null 
             password_changed_at    = $null
             phone                  = $null
-            role_id                = "Sales", "Developers", "Marketing"
+            role_id                = "11234", "98237", "40725"
             samaccountname         = "ouser"
             state                  = "OH"
             status                 = 1
@@ -56,6 +56,21 @@ function New-GroupMock
             name = "Engineering"
             id   = 13579
             reference = $null
+        }
+    }
+}
+
+function New-AppMock
+{
+    [PSCustomObject]@{
+        Data = [PSCustomObject]@{
+            extension = $false
+            icon = $null
+            name = "Pong"
+            id   = 11223
+            login_id = $null
+            personal = $false
+            provisioned = $false
         }
     }
 }
