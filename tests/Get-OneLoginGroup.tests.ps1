@@ -6,7 +6,7 @@ Import-Module $ModulePath -Force
 Import-Module $MocksPath -Force
 
 Describe "Get-OneLoginGroup" {
-    InModuleScope "OneLogin" {
+    InModuleScope $ModuleName {
         Mock Invoke-RestMethod { New-GroupMock }
 
         It "outputs a group object" {

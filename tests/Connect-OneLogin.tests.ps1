@@ -6,7 +6,7 @@ Import-Module $ModulePath -Force
 Import-Module $MocksPath -Force
 
 Describe "Connect-OneLogin" {
-    InModuleScope "OneLogin" {
+    InModuleScope $ModuleName {
         Mock Invoke-RestMethod { New-ConnectionMock }
 
         It "creates a token in the module scope" {

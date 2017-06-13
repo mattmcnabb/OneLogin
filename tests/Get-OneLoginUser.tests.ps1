@@ -6,7 +6,7 @@ Import-Module $ModulePath -Force
 Import-Module $MocksPath -Force
 
 Describe "Get-OneLoginUser" {
-    InModuleScope "OneLogin" {
+    InModuleScope $ModuleName {
         Mock Invoke-RestMethod { New-UserMock }
 
         It "accepts multiple filter properties" {

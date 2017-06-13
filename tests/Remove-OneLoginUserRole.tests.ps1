@@ -6,7 +6,7 @@ Import-Module $ModulePath -Force
 Import-Module $MocksPath -Force
 
 Describe "Remove-OneLoginUserRole" {
-    InModuleScope "OneLogin" {
+    InModuleScope $ModuleName {
 
     }
 }

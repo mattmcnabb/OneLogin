@@ -6,7 +6,7 @@ Import-Module $ModulePath -Force
 Import-Module $MocksPath -Force
 
 Describe "New-OneLoginUser" {
-    InModuleScope "OneLogin" {
+    InModuleScope $ModuleName {
 
     }
 }

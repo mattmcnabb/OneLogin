@@ -6,11 +6,11 @@ Import-Module $ModulePath -Force
 Import-Module $MocksPath -Force
 
 Describe "Get-OneLoginUserGroup" {
-    InModuleScope "OneLogin" {
+    InModuleScope $ModuleName {
         Mock Invoke-RestMethod { New-GroupMock }
         Mock Get-OneLoginUser { [OneLogin.User](New-UserMock).Data }
         $User = Get-OneLoginUser -Identity '12345'
-        
+
         It "outputs a group object" {
             Get-OneLoginUserGroup -Identity $User | Should BeOfType [OneLogin.Group]
         }

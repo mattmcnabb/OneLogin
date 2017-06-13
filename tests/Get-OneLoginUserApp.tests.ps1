@@ -6,7 +6,7 @@ Import-Module $ModulePath -Force
 Import-Module $MocksPath -Force
 
 Describe "Get-OneLoginUserApp" {
-    InModuleScope "OneLogin" {
+    InModuleScope $ModuleName {
         Mock Invoke-RestMethod { New-AppMock }
         Mock Get-OneLoginUser { [OneLogin.User](New-UserMock).Data }
         $User = Get-OneLoginUser -Identity '12345'
