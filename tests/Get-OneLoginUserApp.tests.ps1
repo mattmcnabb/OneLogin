@@ -7,12 +7,28 @@ Import-Module $MocksPath -Force
 
 Describe "Get-OneLoginUserApp" {
     InModuleScope $ModuleName {
-        Mock Invoke-RestMethod { New-AppMock }
-        Mock Get-OneLoginUser { [OneLogin.User](New-UserMock).Data }
+        Mock Invoke-OneLoginRestMethod { New-AppMock }
+        Mock Get-OneLoginUser { [OneLogin.User](New-UserMock) }
         $User = Get-OneLoginUser -Identity '12345'
         
-        It "outputs a group object" {
+        It "outputs an app object" {
             Get-OneLoginUserApp -Identity $User | Should BeOfType [OneLogin.App]
+        }
+
+        Context "API Error handling" {
+            Mock -CommandName Invoke-OneLoginRestMethod -MockWith { New-AppMock -InvalidProperties}
+
+            It "throws if API returns unknown properties" {
+                {Get-OneloginUserApp -Identity $User} | Should Throw
+            }
+        }
+
+        Context "Error handling" {
+            Mock Invoke-OneLoginRestMethod { throw }
+            
+            It "throws a non-terminating error" {
+                Test-TerminatingError {$User | Get-OneLoginUserApp} | Should Be $false
+            }
         }
     }
 }

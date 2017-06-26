@@ -7,11 +7,24 @@ Import-Module $MocksPath -Force
 
 Describe "Connect-OneLogin" {
     InModuleScope $ModuleName {
-        Mock Invoke-RestMethod { New-ConnectionMock }
+        Mock Invoke-RestMethod {New-ConnectionMock}
+
+        $Splat = @{
+            Region = "us"
+            Credential = (New-PSCredentialMock)
+        }
 
         It "creates a token in the module scope" {
-            Connect-OneLogin -Credential (New-PSCredentialMock) -region us
+            Connect-OneLogin @Splat
             $Token | Should Not BeNullOrEmpty
+        }
+
+        Context "Error handling" {
+            Mock Invoke-RestMethod {New-ConnectionMock -InvalidProperties}
+
+            It "throws if API returns unknown properties" {
+                {Connect-OneLogin @Splat} | Should Throw
+            }
         }
     }
 

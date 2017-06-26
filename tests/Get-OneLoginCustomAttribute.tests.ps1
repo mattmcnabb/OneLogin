@@ -7,7 +7,7 @@ Import-Module $MocksPath -Force
 
 Describe "Get-OneLoginCustomAttribute" {
     InModuleScope $ModuleName {
-        Mock Invoke-RestMethod { New-CustomAttributeMock }
+        Mock Invoke-OneLoginRestMethod { New-CustomAttributeMock }
 
         It "outputs string values" {
             Get-OneLoginCustomAttribute | Should BeOfType [System.String]

@@ -7,12 +7,13 @@ Import-Module $MocksPath -Force
 
 Describe "Get-OneLoginUserRole" {
     InModuleScope $ModuleName {
-        Mock Invoke-RestMethod { New-RoleMock }
-        Mock Get-OneLoginUser { [OneLogin.User](New-UserMock).Data }
+        Mock Get-OneLoginUser { [OneLogin.User](New-UserMock) }
+        Mock Get-OneLoginRole {$null} -Verifiable
         $User = Get-OneLoginUser -Identity '12345'
 
-        It "returns a role object" {
-            Get-OneLoginUserRole -Identity $User | Should BeOfType [OneLogin.Role]
+        It "returns correct number of roles" {
+            $User | Get-OneLoginUserRole
+            Assert-MockCalled -CommandName Get-OneLoginRole -Times $User.role_id.count
         }
     }
 }
