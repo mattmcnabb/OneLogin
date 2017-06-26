@@ -1,4 +1,4 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/dktthvk43gwicc7l/branch/v2?svg=true)](https://ci.appveyor.com/project/mattmcnabb/OneLogin/branch/v2)
+[![Build status](https://ci.appveyor.com/api/projects/status/dktthvk43gwicc7l/branch/v2?svg=true)](https://ci.appveyor.com/project/mattmcnabb/OneLogin/branch/master)
 
 # OneLogin Module for PowerShell
 
@@ -23,7 +23,7 @@ Once you have a credential pair, you're ready to start using the OneLogin module
 
 ```powershell
 $OLCred = Get-Credential
-New-OneLoginToken -Credential $OLCred -Region us -SetAsDefault
+Connect-OneLogin -Credential $OLCred -Region us
 ```
 
 ### Start automating your OneLogin account
@@ -34,9 +34,3 @@ Get-OneLoginUser -Filter @{email = "matt*"}
 ```
 
 You can find other commands to explore and manage groups, roles, events and more by running `Get-Command -Module OneLogin`. Happy scripting!
-
-## Special Thanks
-- June Blender for helping me with an XML help issue
-- Stephen Owen for helping out with a couple of REST/HTTP questions
-- Joel Bennett for help with v5.0 classes
-- Dave Wyatt for supporting this project on the PowerShell community build server
