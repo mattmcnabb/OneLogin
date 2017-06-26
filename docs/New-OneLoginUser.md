@@ -34,14 +34,11 @@ Logs a user out of any active OneLogin sessions and any applications provided vi
 ###title
 ###userprincipalname
 
-### Token
-A OneLogin API access token that provides authorization for a OneLogin account. To generate an access token, use the New-OneLoginToken command.
-
 ## EXAMPLES
 
 ### --------------  Example 1  --------------
 ```powershell
-New-OneLoginUser -firstname George -lastname Washington -email George.Washington@onelogin.com -username geowash -Token $Token
+New-OneLoginUser -firstname George -lastname Washington -email George.Washington@onelogin.com -username geowash
 ```
 
 This example shows how to create a new OneLogin user.
@@ -54,3 +51,4 @@ This example shows how to create a new OneLogin user.
 ## NOTES
 
 ## RELATED LINKS
+[OneLogin users](https://developers.onelogin.com/api-docs/1/users/user-resource)

@@ -14,6 +14,20 @@ namespace OneLogin
         public bool provisioned {get; set;}
     }
 
+    public class ApiRateLimit
+    {
+        public int RateLimit {get; set;}
+        public int RateLimitRemaining {get; set;}
+        public TimeSpan RateLimitReset {get; set;}
+
+        public ApiRateLimit (int RateLimit, int RateLimitRemaining, int RateLimitReset)
+        {
+            this.RateLimit = RateLimit;
+            this.RateLimitRemaining = RateLimitRemaining;
+            this.RateLimitReset = new TimeSpan(0, 0, RateLimitReset);
+        }
+    }
+
     public class Event
     {
         public string account_id {get; set;}
@@ -147,18 +161,18 @@ namespace OneLogin
     }
 
     // enums
-    public enum RoleParameters
+    public enum RoleFilterParameter
     {
         name
     }
 
-    public enum AdminRegions
+    public enum AdminRegion
     {
         us,
         eu
     }
 
-    public enum EventParameters
+    public enum EventFilterParameter
     {
         client_id,
         created_at,
@@ -168,7 +182,7 @@ namespace OneLogin
         user_id
     }
 
-    public enum UserFilterParameters
+    public enum UserFilterParameter
     {
         directory_id,
         email,

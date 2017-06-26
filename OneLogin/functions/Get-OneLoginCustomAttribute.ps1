@@ -4,15 +4,11 @@ function Get-OneLoginCustomAttribute
     [OutputType([string])]
     param
     (
-        [ValidateNotNullOrEmpty()]
-        [OneLogin.Token]
-        $Token
     )
     
     $Splat = @{
-        Token    = $Token
         Endpoint = "api/1/users/custom_attributes"
     }
     
-    Invoke-OneLoginRestMethod @Splat
+    Invoke-OneLoginRestMethod @Splat | Foreach-Object { $_ }
 }

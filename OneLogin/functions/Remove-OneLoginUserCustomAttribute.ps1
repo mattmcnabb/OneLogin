@@ -8,24 +8,30 @@ function Remove-OneLoginUserCustomAttribute
         $Identity,
 
         [Parameter(Mandatory = $true)]
+        [ValidateScript(
+            {
+                $_ | Foreach-Object {
+                    if ($_ -notin (Get-OneLoginCustomAttribute))
+                    {
+                        throw "Could not find a custom attribute with name '$_'. To find custom attribute names, run 'Get-OneLoginCustomAttribute'."
+                    }
+                    else { $true }
+                }
+            }
+        )]
         [string[]]
-        $CustomAttributes,
-
-        [Parameter(Mandatory = $true)]
-        [OneLogin.Token]
-        $Token
+        $CustomAttributes
     )
     
     begin
     {
-        $CustomAttributes = Get-OneLoginCustomAttribute -Token $Token | Where {$_ -in $CustomAttributes}
+        $CustomAttributes = Get-OneLoginCustomAttribute | Where-Object {$_ -in $CustomAttributes}
         $Body = @{ custom_attributes = @{} }
         foreach ($Attribute in $CustomAttributes)
         {
             $Body["custom_attributes"][$Attribute] = [string]::Empty
         }
         $Splat = @{
-            Token  = $Token
             Method = "Put"
             Body   = $Body
         }

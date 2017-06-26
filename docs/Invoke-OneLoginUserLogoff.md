@@ -16,14 +16,11 @@ Logs a user out of any active OneLogin sessions and any applications provided vi
 ### Identity
 Specifies the user who will be logged off.
 
-### Token
-A OneLogin API access token that provides authorization for a OneLogin account. To generate an access token, use the New-OneLoginToken command.
-
 ## EXAMPLES
 ### --------------  Example 1  --------------
 
 ```powershell
-Get-OneLoginUser -Identity 123456 -Token $Token | Invoke-OneLoginUserLogoff -Token $Token
+Get-OneLoginUser -Identity 123456 | Invoke-OneLoginUserLogoff
 ```
 
 ## INPUTS
@@ -34,3 +31,4 @@ Get-OneLoginUser -Identity 123456 -Token $Token | Invoke-OneLoginUserLogoff -Tok
 ## NOTES
 
 ## RELATED LINKS
+[OneLogin user logoff](https://developers.onelogin.com/api-docs/1/users/log-user-out)

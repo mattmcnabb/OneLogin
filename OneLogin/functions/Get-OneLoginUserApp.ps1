@@ -6,23 +6,18 @@ function Get-OneLoginUserApp
     (
         [Parameter(Mandatory, ValueFromPipeline)]
         [OneLogin.User]
-        $Identity,
-
-        [Parameter(Mandatory)]
-        [OneLogin.Token]
-        $Token
+        $Identity
     )
     
     process
     {
         $Splat = @{
-            Token    = $Token
             Endpoint = "api/1/users/$($Identity.id)/apps"
         }
 
         try
         {
-            [OneLogin.App[]](Invoke-OneLoginRestMethod @Splat)
+            Invoke-OneLoginRestMethod @Splat | Foreach-Object { [OneLogin.App[]]$_ }
         }
         catch [System.Management.Automation.PSInvalidCastException]
         {

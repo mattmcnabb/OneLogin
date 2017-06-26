@@ -7,7 +7,7 @@ function Get-OneLoginUser
         [CmdletBinding(DefaultParameterSetName = "Filter")]
         [ValidateScript(
             {
-                $EnumValues = [OneLogin.UserFilterParameters].GetEnumNames()
+                $EnumValues = [OneLogin.UserFilterParameter].GetEnumNames()
                 foreach ($Property in $_.GetEnumerator().Name)
                 {
                     if ($Property -cin $EnumValues) { $true }
@@ -33,16 +33,10 @@ function Get-OneLoginUser
 
         [Parameter(ParameterSetName = "All")]
         [switch]
-        $All,
-
-        [Parameter()]
-        [ValidateNotNullOrEmpty()]
-        [OneLogin.Token]
-        $Token
+        $All
     )
     
     $Splat = @{
-        Token    = $Token
         Method   = "Get"
         Endpoint = "api/1/users"
     }
@@ -62,7 +56,7 @@ function Get-OneLoginUser
     
     try
     {
-        [OneLogin.User[]](Invoke-OneLoginRestMethod @Splat)
+        Invoke-OneLoginRestMethod @Splat | foreach-Object { [OneLogin.User[]]$_ }
     }
     catch [System.Management.Automation.PSInvalidCastException]
     {

@@ -16,6 +16,8 @@
     )
     FunctionsToExport = @(
         "Add-OneLoginUserRole",
+        "Connect-OneLogin",
+        "Get-OneLoginApiRateLimit",
         "Get-OneLoginCustomAttribute",
         "Get-OneLoginEvent",
         "Get-OneLoginGroup",
@@ -26,8 +28,6 @@
         "Get-OneLoginUserRole",
         "Invoke-OneLoginUserLockout"
         "Invoke-OneLoginUserLogoff",
-        "New-OneLoginRefreshToken",
-        "New-OneLoginToken",
         "New-OneLoginUser",
         "Remove-OneLoginUser",
         "Remove-OneLoginUserCustomAttribute",
@@ -43,26 +43,13 @@
             ProjectUri = "https://github.com/mattmcnabb/OneLogin"
             ReleaseNotes = @"
 
-v1.0.10
+v2.0
 Features
-- added the ability to filter for users by last name
-Bug fixes
-- some objects might not be returned if unexpected properties were returned from the REST API - fixed
-- *Token commands should not have a default value for -Token parameter - fixed
-
-v1.0.6
-Bug fixes
-- If you use the -WhatIf parameter with impactful commands (remove,set,add), the typename of the user object is returned instead of the user id - fixed
-- Get-OneLoginUserRole and Get-OneLoginUserGroup sometimes returned incorrect data if you pipe the user object in via a variable - fixed
-
-v1.0.5
-Bug Fixes
-- Filter parameters for Get-OneLoginEvent/Role/User don"t accept multiple filter properties
-- Filter parameters for Get-OneLoginEvent/Role/User accept null values
+- Replaced New-OneLoginToken with Connect-OneLogin for easier connections
+- Added command Get-OneLogin ApiRateLimit
+- normalized enum names for easier discovery
+- full Pester test suite for greater confidence
 "@
         }
     }
-
-    # HelpInfo URI of this module
-    # HelpInfoURI = ""
 }

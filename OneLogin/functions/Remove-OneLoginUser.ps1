@@ -5,16 +5,12 @@ function Remove-OneLoginUser
     (
         [Parameter(Mandatory, ValueFromPipeline)]
         [OneLogin.User]
-        $Identity,
-
-        [OneLogin.Token]
-        $Token
+        $Identity
     )
     
     begin
     {
         $Splat = @{
-            Token  = $Token
             Method = "Del"
             Body   = $Body
         }

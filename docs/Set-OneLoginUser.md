@@ -36,14 +36,11 @@ Specifies a OneLogin user who you'd like to modify.
 ###title
 ###userprincipalname
 
-### Token
-A OneLogin API access token that provides authorization for a OneLogin account. To generate an access token, use the New-OneLoginToken command.
-
 ## EXAMPLES
 ### --------------  Example 1  --------------
 
 ```powershell
-Get-OneLoginUser -Identity 123456 -Token $Token | Set-OneLoginUser -department Engineering -Token $Token
+Get-OneLoginUser -Identity 123456 | Set-OneLoginUser -department Engineering
 ```
 
 This example shows howto modify the department attribute for a OneLogin user.
@@ -56,3 +53,4 @@ This example shows howto modify the department attribute for a OneLogin user.
 ## NOTES
 
 ## RELATED LINKS
+[OneLogin users](https://developers.onelogin.com/api-docs/1/users/user-resource)

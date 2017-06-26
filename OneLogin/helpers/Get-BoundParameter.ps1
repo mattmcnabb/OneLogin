@@ -16,10 +16,10 @@ function Get-BoundParameter
         $ExcludedParameters
     )
 
-    $CommonParameters = $MyInvocation.MyCommand.ParameterSets.Parameters | Where-Object Position -eq -2147483648 | Select-Object -ExpandProperty Name
+    $CommonParameters = [System.Management.Automation.PSCmdlet]::CommonParameters
     $ToExclude = $CommonParameters + $ExcludedParameters
     $Hash = @{}
-    $BoundParameters.GetEnumerator() | Foreach {
+    $BoundParameters.GetEnumerator() | ForEach-Object {
         if ($_.Name -notin $ToExclude) { $Hash.Add($_.Name, $_.Value) }
     }
 

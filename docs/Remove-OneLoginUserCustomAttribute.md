@@ -19,21 +19,18 @@ Specifies a OneLogin user who you'd like to modify.
 ### CustomAttributes
 Specifies one or more custom attributes to remove. You can find a user's custom attributes with the Get-OneLoginUser command, and you can find all available custom attributes in your account with Get-OneLoginCustomAttribute.
 
-### Token
-A OneLogin API access token that provides authorization for a OneLogin account. To generate an access token, use the New-OneLoginToken command.
-
 ## EXAMPLES
 ### --------------  Example 1  --------------
 
 ```powershell
-Get-OneLoginUser -Identity 123456 -Token $Token | Remove-OneLoginUserCustomAttribute -CustomAttributes employeeType -Token $Token
+Get-OneLoginUser -Identity 123456 | Remove-OneLoginUserCustomAttribute -CustomAttributes employeeType
 ```
 
 This example shows how to remove a custom attribute for a OneLogin user. Note that you'll be prompted to confirm that you'd like to take this action.
 
 ### --------------  Example 2  --------------
 ```powershell
-Get-OneLoginUser -Identity 123456 -Token $Token | Remove-OneLoginUserCustomAttribute -CustomAttributes employeeType -Token $Token
+Get-OneLoginUser -Identity 123456 | Remove-OneLoginUserCustomAttribute -CustomAttributes employeeType
 ```
 
 This example shows how to remove a custom attribute from a OneLogin user without being prompted for confirmation.
@@ -46,3 +43,5 @@ This example shows how to remove a custom attribute from a OneLogin user without
 ## NOTES
 
 ## RELATED LINKS
+[OneLogin users](https://developers.onelogin.com/api-docs/1/users/user-resource)
+[OneLogin custom attributes](https://developers.onelogin.com/api-docs/1/users/get-custom-attributes)

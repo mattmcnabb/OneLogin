@@ -11,26 +11,27 @@ function Set-OneLoginUserCustomAttribute
         [ValidateScript(
             {
                 $_.GetEnumerator() | Foreach-Object {
-                    if ([string]::IsNullOrEmpty($_.Value))
+                    $Name = $_.Name
+                    $Value = $_.Value
+                    if ([string]::IsNullOrEmpty($Value))
                     {
                         throw "One or more attributes has no value. Please specify a value for each custom attribute."
+                    }
+                    elseif ($Name -notin (Get-OneLoginCustomAttribute))
+                    {
+                        throw "Could not find a custom attribute with name '$Name'. To find custom attribute names, run 'Get-OneLoginCustomAttribute'."
                     }
                     else { $true }
                 }
             }
         )]
         [hashtable]
-        $CustomAttributes,
-
-        [Parameter(Mandatory = $true)]
-        [OneLogin.Token]
-        $Token
+        $CustomAttributes
     )
     
     begin
     {
         $Splat = @{
-            Token  = $Token
             Method = "Put"
             Body   = @{custom_attributes = $CustomAttributes}
         }

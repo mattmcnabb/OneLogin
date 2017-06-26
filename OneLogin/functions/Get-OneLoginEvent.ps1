@@ -6,7 +6,7 @@ function Get-OneLoginEvent
     (
         [ValidateScript(
             {
-                $EnumValues = [OneLogin.EventParameters].GetEnumNames()
+                $EnumValues = [OneLogin.EventFilterParameter].GetEnumNames()
                 foreach ($Property in $_.GetEnumerator().Name)
                 {
                     if ($Property -cin $EnumValues) { $true }
@@ -30,17 +30,12 @@ function Get-OneLoginEvent
         $Since,
 
         [DateTimeOffset]
-        $Until = ([DateTimeOffset]::now),
-
-        [ValidateNotNullOrEmpty()]
-        [OneLogin.Token]
-        $Token
+        $Until = ([DateTimeOffset]::now)
     )
 
 
 
     $Splat = @{
-        Token    = $Token
         Endpoint = "api/1/events"
         Body     = @{}
     }
@@ -67,7 +62,7 @@ function Get-OneLoginEvent
 
     try
     {
-        [OneLogin.Event[]](Invoke-OneLoginRestMethod @Splat)
+        Invoke-OneLoginRestMethod @Splat | Foreach-Object { [OneLogin.Event[]]$_ }
     }
     catch [System.Management.Automation.PSInvalidCastException]
     {

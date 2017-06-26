@@ -6,19 +6,15 @@ function Get-OneLoginUserRole
     (
         [Parameter(Mandatory, ValueFromPipeline)]
         [OneLogin.User]
-        $Identity,
-
-        [Parameter(Mandatory)]
-        [OneLogin.Token]
-        $Token
+        $Identity
     )
 
     process
     {
-        $Identity = Get-OneLoginUser -Identity $Identity.id -Token $Token
+        $Identity = Get-OneLoginUser -Identity $Identity.id
         foreach ($RoleId in $Identity.role_id)
         {
-            Get-OneLoginRole -Identity $RoleId -Token $Token
+            Get-OneLoginRole -Identity $RoleId
         }
     }
 }

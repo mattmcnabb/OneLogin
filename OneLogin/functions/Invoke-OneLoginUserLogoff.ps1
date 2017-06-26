@@ -5,17 +5,12 @@ function Invoke-OneLoginUserLogoff
     (
         [Parameter(Mandatory, ValueFromPipeline)]
         [OneLogin.User]
-        $Identity,
-
-        [Parameter(Mandatory)]
-        [OneLogin.Token]
-        $Token
+        $Identity
     )
     
     begin
     {
         $Splat = @{
-            Token  = $Token
             Method = "Put"
         }
     }

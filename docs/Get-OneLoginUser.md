@@ -41,16 +41,11 @@ Specifies the numeric id of a OneLogin user.
 ### All
 Specifies tthat you would like to return all roles in your OneLogin account. This parameter cannot be used with -Filter or -Identity.
 
-
-### Token
-A OneLogin API access token that provides authorization for a OneLogin account. To generate an access token, use the New-OneLoginToken command.
-
-
 ## EXAMPLES
 ### --------------  Example 1  --------------
 
 ```powershell
-Get-OneLoginUser -All -Token $Token
+Get-OneLoginUser -All
 ```
 
 This example returns all users in the OneLogin account.
@@ -59,7 +54,7 @@ This example returns all users in the OneLogin account.
 ### --------------  Example 2  --------------
 
 ```powershell
-Get-OneLoginUser -Identity 123456 -Token $Token
+Get-OneLoginUser -Identity 123456
 ```
 
 This example demonstrates how to use the -Identity parameter to return a single user object.
@@ -68,7 +63,7 @@ This example demonstrates how to use the -Identity parameter to return a single 
 ### --------------  Example 3  --------------
 
 ```powershell
-Get-OneLoginUser -Filter @{email = "abraham.lincoln@onelogin.com"} -Token $Token
+Get-OneLoginUser -Filter @{email = "abraham.lincoln@onelogin.com"}
 ```
 
 This example demonstrates how to use the -Filter parameter to return a single user by specifying an email address.
@@ -77,7 +72,7 @@ This example demonstrates how to use the -Filter parameter to return a single us
 ### --------------  Example 4  --------------
 
 ```powershell
-Get-OneLoginUser -Filter @{email = "george.w*"} -Token $Token
+Get-OneLoginUser -Filter @{email = "george.w*"}
 ```
 
 This example demonstrates how to use the -Filter parameter to return any users whose email address matches a wildcard string.
@@ -86,7 +81,7 @@ This example demonstrates how to use the -Filter parameter to return any users w
 ### --------------  Example 5  --------------
 
 ```powershell
-Get-OneLoginUser -Filter @{firstname = "george"; lastname = "wash*"} -Token $Token
+Get-OneLoginUser -Filter @{firstname = "george"; lastname = "wash*"}
 ```
 
 This example demonstrates how to use the -Filter parameter with more than one property.
@@ -99,3 +94,4 @@ This example demonstrates how to use the -Filter parameter with more than one pr
 ## NOTES
 
 ## RELATED LINKS
+[OneLogin users](https://developers.onelogin.com/api-docs/1/users/user-resource)

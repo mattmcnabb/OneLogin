@@ -37,15 +37,12 @@ The earliest date for which to return events. This can be used with or without a
 ### Until
 The latest date for which to return events. If you specify the -Since parameter but not the -Until parameter, this will have a value of the current date and time.
 
-### Token
-A OneLogin API access token that provides authorization for a OneLogin account. To generate an access token, use the New-OneLoginToken command.
-
 
 ## EXAMPLES
 ### --------------  Example 1  --------------
 
 ```powershell
-Get-OneLoginEvent -Filter @{user_id = '112764'} -Token $Token
+Get-OneLoginEvent -Filter @{user_id = '112764'}
 ```
 
 This example shows how to use a filter to return all events for a specific user, identified by the user_id property.
@@ -53,7 +50,7 @@ This example shows how to use a filter to return all events for a specific user,
 ### --------------  Example 2  --------------
 
 ```powershell
-Get-OneLoginEvent -Filter @{user_id = '112764'; event_type_id = '11'} -Token $Token
+Get-OneLoginEvent -Filter @{user_id = '112764'; event_type_id = '11'}
 ```
 
 This example shows how to retrieve events for a specific user and specific event type, a password change.
@@ -61,7 +58,7 @@ This example shows how to retrieve events for a specific user and specific event
 ### --------------  Example 3  --------------
 
 ```powershell
-Get-OneLoginEvent -Filter @{user_id = '112764'} -Since "9/23/2016" -Until "9/24/2016" -Token $Token
+Get-OneLoginEvent -Filter @{user_id = '112764'} -Since "9/23/2016" -Until "9/24/2016"
 ```
 
 This example will return all events for a specific user that occured between 9/23/2016 and 9/24/2016.
@@ -69,7 +66,7 @@ This example will return all events for a specific user that occured between 9/2
 ### --------------  Example 4  --------------
 
 ```powershell
-Get-OneLoginEvent -Since "9/23/2016" -Until "9/24/2016" -Token $Token
+Get-OneLoginEvent -Since "9/23/2016" -Until "9/24/2016"
 ```
 
 This example will retrieve all events of any type between 9/23/2016 and 9/24/2016
@@ -77,7 +74,7 @@ This example will retrieve all events of any type between 9/23/2016 and 9/24/201
 ### --------------  Example 5  --------------
 
 ```powershell
-Get-OneLoginEvent -Filter @{event_type_id = [int][OneLogin.EventType]::User_logged_in_to_app} -Token $Token
+Get-OneLoginEvent -Filter @{event_type_id = [int][OneLogin.EventType]::User_logged_in_to_app}
 ```
 
 This example will retrieve all events of type 'User_logged_in_to_app. Note the use of the enum "OneLogin.EventType" to calculate the numerical event id.
@@ -90,3 +87,4 @@ This example will retrieve all events of type 'User_logged_in_to_app. Note the u
 ## NOTES
 
 ## RELATED LINKS
+[OneLogin events](https://developers.onelogin.com/api-docs/1/events/event-resource)

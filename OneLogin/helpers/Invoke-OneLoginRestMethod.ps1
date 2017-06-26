@@ -9,10 +9,6 @@ function Invoke-OneLoginRestMethod
         [Parameter(Mandatory)]
         [string]
         $Endpoint,
-        
-        [Parameter(Mandatory)]
-        [OneLogin.Token]
-        $Token,
 
         [hashtable]
         $Body
@@ -44,14 +40,14 @@ function Invoke-OneLoginRestMethod
             else { $Body = @{} }
 
 
-            $Response = @(Invoke-RestMethod @Splat -ErrorAction Stop)
+            $Response = Invoke-RestMethod @Splat -ErrorAction Stop 
             $Response.Data
         }
         catch
         {
-            throw $_    
+            throw $_
         }
         
     }
-    while ($Response.Pagination.after_cursor -and $Response.data.count -eq 50)    
+    while ($Response.Pagination.after_cursor -and $Response.data.count -eq 50)
 }

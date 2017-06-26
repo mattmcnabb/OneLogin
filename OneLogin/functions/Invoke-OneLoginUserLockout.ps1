@@ -8,17 +8,13 @@ function Invoke-OneLoginUserLockout
         $Identity,
 
         [int]
-        $IntervalInMinutes = 0,
-
-        [OneLogin.Token]
-        $Token
+        $IntervalInMinutes = 0
     )
     
     begin
     {
 
         $Splat = @{
-            Token  = $Token
             Method = "Put"
             Body   = @{locked_until = $IntervalInMinutes}
         }

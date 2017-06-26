@@ -19,15 +19,12 @@ Specifies the OneLogin user that you'd like to add a role to.
 ### RoleId
 Specifies the Id of the role you'd like to add.
 
-### Token
-A OneLogin API access token that provides authorization for a OneLogin account. To generate an access token, use the New-OneLoginToken command.
-
 ## EXAMPLES
 ### --------------  Example 1  --------------
 
 ```powershell
 PS C:\> $Role = Get-OneLoginRole -Filter @{name = "Sales"}
-PS C:\> Get-OneLoginUser -Identity 12345678 | Add-OneLoginUserRole -RoleId $Role.id -Token $Token
+PS C:\> Get-OneLoginUser -Identity 12345678 | Add-OneLoginUserRole -RoleId $Role.id
 ```
 This example demonstrates how to add a role to a user via the pipeline. Get-OneLoginUser returns a user by Id, and Add-OneLoginUserRole adds the role "Sales" to that user.
 
@@ -39,3 +36,5 @@ This example demonstrates how to add a role to a user via the pipeline. Get-OneL
 ## NOTES
 
 ## RELATED LINKS
+[OneLogin roles](https://developers.onelogin.com/api-docs/1/roles/get-roles)
+[OneLogin users](https://developers.onelogin.com/api-docs/1/users/user-resource)

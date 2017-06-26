@@ -5,15 +5,10 @@ function Get-OneLoginGroup
     param
     (
         [int]
-        $Identity,
-
-        [Parameter(Mandatory)]
-        [OneLogin.Token]
-        $Token
+        $Identity
     )
     
     $Splat = @{
-        Token    = $Token
         Endpoint = "api/1/groups"
     }
 
@@ -21,7 +16,7 @@ function Get-OneLoginGroup
 
     try
     {
-        [OneLogin.Group[]](Invoke-OneLoginRestMethod @Splat)
+        Invoke-OneLoginRestMethod @Splat | ForEach-Object { [OneLogin.Group[]]$_ }
     }
     catch [System.Management.Automation.PSInvalidCastException]
     {
