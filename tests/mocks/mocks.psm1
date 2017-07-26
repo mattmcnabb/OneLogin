@@ -279,3 +279,30 @@ function Test-TerminatingError
         $true
     }
 }
+
+function New-RestMock
+{
+    param
+    (
+        [switch]
+        $Link
+    )
+
+    $Output = [ordered]@{
+        Status = [PSCustomObject]@{}
+        Pagination = [PSCustomObject]@{
+            before_cursor = "YWNjb3VudF9pZDo6Oi0tIyNpZDo6OjIzODc3NzU3"
+            after_cursor  = "YWNjb3VudF9pZDo6Oi0tIyNpZDo6OjIzODc4OTQ3"
+            previous_link = "https://api.us.onelogin.com/api/1/users?before_cursor=YWNjb3VudF9pZDo6Oi0tIyNpZDo6OjIzODc3NzU3"
+            next_link     = "https://api.us.onelogin.com/api/1/users?after_cursor=YWNjb3VudF9pZDo6Oi0tIyNpZDo6OjIzODc4OTQ3"
+        }
+        Data = 1..50 | ForEach-Object {[PSCustomObject]@{Property = "whatev"}}
+    }
+
+    if (!$Link)
+    {
+        $Output.Pagination.after_cursor = $null
+    }
+
+    $Output
+}

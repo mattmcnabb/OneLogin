@@ -57,5 +57,15 @@ Describe "Invoke-OneLoginRestMethod" {
                 Assert-VerifiableMocks
             }
         }
+
+        Context "Pagination" {
+            Mock -CommandName Invoke-RestMethod -MockWith {New-RestMock} -ParameterFilter {$Body.after_cursor}
+            Mock -CommandName Invoke-RestMethod -MockWith {New-RestMock -Link} -ParameterFilter {!$Body.after_cursor}
+
+            It "paginates data" {
+                $null = Invoke-OneLoginRestMethod -Endpoint "https://api.us.onelogin.com/api/1"
+                Assert-MockCalled Invoke-RestMethod -Times 2 -Exactly
+            }
+        }
     }
 }
