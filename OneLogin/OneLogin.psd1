@@ -43,12 +43,9 @@
             ProjectUri = "https://github.com/mattmcnabb/OneLogin"
             ReleaseNotes = @"
 
-v2.0
-Features
-- Replaced New-OneLoginToken with Connect-OneLogin for easier connections
-- Added command Get-OneLogin ApiRateLimit
-- normalized enum names for easier discovery
-- full Pester test suite for greater confidence
+v2.1
+Fixes
+- Get-OneLoginUser returned errors due to undocumented properties returned from the REST api - fixed
 "@
         }
     }
