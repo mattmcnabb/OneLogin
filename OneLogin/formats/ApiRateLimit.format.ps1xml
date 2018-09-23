@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Configuration>
+  <ViewDefinitions>
+    <View>
+      <Name>RateLimitTable</Name>
+      <ViewSelectedBy>
+        <TypeName>OneLogin.ApiRateLimit</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+          <TableColumnHeader>
+            <Label>RateLimit</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>RateLimitRemaining</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>RateLimitReset</Label>
+          </TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+          <TableRowEntry>
+            <TableColumnItems>
+              <TableColumnItem>
+                <PropertyName>RateLimit</PropertyName>
+              </TableColumnItem>
+              <TableColumnItem>
+                <PropertyName>RateLimitRemaining</PropertyName>
+              </TableColumnItem>
+              <TableColumnItem>
+                <PropertyName>RateLimitReset</PropertyName>
+              </TableColumnItem>
+            </TableColumnItems>
+          </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+  </ViewDefinitions>
+</Configuration>
