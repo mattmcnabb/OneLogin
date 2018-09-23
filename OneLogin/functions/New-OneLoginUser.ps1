@@ -79,6 +79,7 @@ function New-OneLoginUser
 
     if ($PSCmdlet.ShouldProcess($Identity, $MyInvocation.MyCommand.Name))
     {
-        [OneLogin.User](Invoke-OneLoginRestMethod @Splat)
+        $OutputType = $PSCmdlet.MyInvocation.MyCommand.OutputType.Type
+        (Invoke-OneLoginRestMethod @Splat) | ConvertTo-OneLoginObject -OutputType $OutputType
     }
 }

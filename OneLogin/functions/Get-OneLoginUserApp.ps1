@@ -17,14 +17,10 @@ function Get-OneLoginUserApp
 
         try
         {
-            Invoke-OneLoginRestMethod @Splat | Foreach-Object { [OneLogin.App[]]$_ }
+            $OutputType = $PSCmdlet.MyInvocation.MyCommand.OutputType.Type
+            (Invoke-OneLoginRestMethod @Splat) | ConvertTo-OneLoginObject -OutputType $OutputType
         }
-        catch [System.Management.Automation.PSInvalidCastException]
-        {
-            # API may be outputting undocumented object properties
-            # check the text of the exception message to see what values are included in the typecast
-            Write-Error $_ -ErrorAction Stop
-        }
+
         catch
         {
             Write-Error $_

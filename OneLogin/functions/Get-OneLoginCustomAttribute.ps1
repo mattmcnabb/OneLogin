@@ -10,5 +10,5 @@ function Get-OneLoginCustomAttribute
         Endpoint = "api/1/users/custom_attributes"
     }
     
-    Invoke-OneLoginRestMethod @Splat | Foreach-Object { $_ }
+    (Invoke-OneLoginRestMethod @Splat)
 }

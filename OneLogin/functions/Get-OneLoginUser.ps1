@@ -56,13 +56,8 @@ function Get-OneLoginUser
     
     try
     {
-        Invoke-OneLoginRestMethod @Splat | foreach-Object { [OneLogin.User[]]$_ }
-    }
-    catch [System.Management.Automation.PSInvalidCastException]
-    {
-        # API may be outputting undocumented object properties
-        # check the text of the exception message to see what values are included in the typecast
-        Write-Error $_ -ErrorAction Stop
+        $OutputType = $PSCmdlet.MyInvocation.MyCommand.OutputType.Type
+        (Invoke-OneLoginRestMethod @Splat) | ConvertTo-OneLoginObject -OutputType $OutputType
     }
     catch
     {

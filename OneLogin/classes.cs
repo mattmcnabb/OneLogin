@@ -1,9 +1,15 @@
 using System;
+using System.Collections;
 
 namespace OneLogin
 {
     // object types
-    public class App
+    public class Object
+    {
+        public Hashtable AdditionalProperties {get; set;}
+    }
+
+    public class App : Object
     {
         public bool extension {get; set;}
         public string icon {get; set;}
@@ -14,7 +20,7 @@ namespace OneLogin
         public bool provisioned {get; set;}
     }
 
-    public class ApiRateLimit
+    public class ApiRateLimit : Object
     {
         public int RateLimit {get; set;}
         public int RateLimitRemaining {get; set;}
@@ -28,7 +34,7 @@ namespace OneLogin
         }
     }
 
-    public class Event
+    public class Event : Object
     {
         public string account_id {get; set;}
         public string actor_system {get; set;}
@@ -77,20 +83,20 @@ namespace OneLogin
         public string user_name {get; set;}
     }
 
-    public class Group
+    public class Group : Object
     {
         public string id {get; set;}
         public string name {get; set;}
         public string reference {get; set;}
     }
 
-    public class Role
+    public class Role : Object
     {
         public string id {get; set;}
         public string name {get; set;}
     }
 
-    public class Token
+    public class Token : Object
     {
         public string access_token {get; set;}
         public string account_id {get; set;}
@@ -108,7 +114,7 @@ namespace OneLogin
         public string token_type {get; set;}
     }
 
-    public class User
+    public class User : Object
     {
         public DateTimeOffset? activated_at { get; set; }
         public string comment { get; set; }

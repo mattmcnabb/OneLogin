@@ -1,6 +1,7 @@
 function Connect-OneLogin
 {
     [CmdletBinding()]
+    [OutputType([OneLogin.Token])]
     param
     (
         [Parameter(Mandatory)]
@@ -29,8 +30,9 @@ function Connect-OneLogin
         ContentType = 'application/json'
     }
 
-    $Script:Token = [OneLogin.Token](
-        Invoke-RestMethod @Splat | Select-Object -ExpandProperty Data
-    )
+    $OutputType = $PSCmdlet.MyInvocation.MyCommand.OutputType.Type
+    $Script:Token = Invoke-RestMethod @Splat |
+        Select-Object -ExpandProperty Data |
+        ConvertTo-OneLoginObject -OutputType $OutputType
     $Script:Token.ApiBase = $ApiBase
 }
