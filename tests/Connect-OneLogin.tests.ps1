@@ -18,14 +18,6 @@ Describe "Connect-OneLogin" {
             Connect-OneLogin @Splat
             $Token | Should Not BeNullOrEmpty
         }
-
-        Context "Error handling" {
-            Mock Invoke-RestMethod {New-ConnectionMock -InvalidProperties}
-
-            It "throws if API returns unknown properties" {
-                {Connect-OneLogin @Splat} | Should Throw
-            }
-        }
     }
 
     It "token is not available outside of module scope" {

@@ -14,13 +14,5 @@ Describe "Get-OneLoginUserGroup" {
         It "outputs a group object" {
             Get-OneLoginUserGroup -Identity $User | Should BeOfType [OneLogin.Group]
         }
-
-        Context "Error handling" {
-            Mock -CommandName Invoke-OneLoginRestMethod -MockWith { New-GroupMock -InvalidProperties}
-
-            It "throws if API returns unknown properties" {
-                {Get-OneloginEvent -filter @{user_id = "12345"}} | Should Throw
-            }
-        }
     }
 }

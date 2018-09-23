@@ -13,11 +13,11 @@ Describe "Get-OneLoginApiRateLimit" {
             Get-OneLoginApiRateLimit | Should BeOfType "OneLogin.ApiRateLimit"
         }
 
-        Context "Error handling" {
-            Mock -CommandName Invoke-OneLoginRestMethod -MockWith { New-ApiRateLimitMock -InvalidProperties}
+        Context "Additional Properties" {
+            Mock -CommandName Invoke-OneLoginRestMethod -MockWith { New-ApiRateLimitMock -UnknownProperties}
 
-            It "throws if API returns unknown properties" {
-                {Get-OneloginEvent -filter @{user_id = "12345"}} | Should Throw
+            It "adds additional properties returned by the API" {
+                (Get-OneLoginApiRateLimit).AdditionalProperties | Should Not Be Null
             }
         }
     }

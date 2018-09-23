@@ -21,11 +21,11 @@ Describe "New-OneLoginUser" {
         }
 
         Context "Parameter values" {
-            Mock Invoke-OneLoginRestMethod -ParameterFilter {$Body.ContainsKey("title")} -MockWith {$null} -Verifiable
+            Mock Invoke-OneLoginRestMethod -ParameterFilter {$Body.ContainsKey("title")} -MockWith {New-UserMock} -Verifiable
 
             It "passes parameter values into the API query" {
                 New-OneLoginUser @Splat -title "Vice President"
-                Assert-VerifiableMocks
+                Assert-VerifiableMock
             }
         }
     }

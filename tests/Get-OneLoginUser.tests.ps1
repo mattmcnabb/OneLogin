@@ -35,37 +35,29 @@ Describe "Get-OneLoginUser" {
         }
 
         Context "-Identity" {
-            Mock Invoke-OneLoginRestMethod -ParameterFilter {$Body.ContainsKey("id")} -MockWith {$null} -Verifiable
+            Mock Invoke-OneLoginRestMethod -ParameterFilter {$Body.ContainsKey("id")} -MockWith {New-UserMock} -Verifiable
 
             It "passes 'id' into the API query" {
                 Get-OneloginUser -Identity "12345"
-                Assert-VerifiableMocks
+                Assert-VerifiableMock
             }
         }
 
         Context "-All" {
-            Mock Invoke-OneLoginRestMethod -ParameterFilter {$Body -eq $null} -MockWith {$null} -Verifiable
+            Mock Invoke-OneLoginRestMethod -ParameterFilter {$Body -eq $null} -MockWith {New-UserMock} -Verifiable
 
             It "passes 'id' into the API query" {
                 Get-OneloginUser -All
-                Assert-VerifiableMocks
+                Assert-VerifiableMock
             }
         }
 
         Context "-Filter" {
-            Mock Invoke-OneLoginRestMethod -ParameterFilter {$Body.ContainsKey("firstname")} -MockWith {$null} -Verifiable
+            Mock Invoke-OneLoginRestMethod -ParameterFilter {$Body.ContainsKey("firstname")} -MockWith {New-UserMock} -Verifiable
 
             It "passes a filter into the API query" {
                 Get-OneloginUser -Filter @{firstname = "Matt"}
-                Assert-VerifiableMocks
-            }
-        }
-
-        Context "API Error handling" {
-            Mock -CommandName Invoke-OneLoginRestMethod -MockWith { New-UserMock -InvalidProperties}
-
-            It "throws if API returns unknown properties" {
-                {Get-OneloginUser -Identity '12345'} | Should Throw
+                Assert-VerifiableMock
             }
         }
 

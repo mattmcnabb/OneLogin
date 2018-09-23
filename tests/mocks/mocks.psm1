@@ -241,12 +241,59 @@ function New-ApiRateLimitMock
         "X-RateLimit-Reset"     = 1622
     }
 
-    If ($InvalidProperties)
+    If ($UnknownProperties)
     {
-        $Object | Add-Member -MemberType NoteProperty -Name Invalid -Value "Invalid"
+        $Object | Add-Member -MemberType NoteProperty -Name Unknown -Value "Unknown"
     }
 
     $Object
+}
+
+function Add-ConversionType
+{
+    param
+    (
+        [Parameter(Mandatory)]
+        [string]
+        $TypeName
+    )
+
+    $Namespace, $ClassName = $TypeName -split '\.'
+
+    $Csharp = @"
+    using System;
+    using System.Collections;
+
+    namespace $Namespace
+    {
+        public class $ClassName
+        {
+            public string Prop1 {get; set;}
+            public string Prop2 {get; set;}
+            public Hashtable AdditionalProperties {get; set;}
+        }
+    }
+"@
+
+    Add-Type -TypeDefinition $Csharp
+}
+
+function New-ConversionMock
+{
+    param
+    (
+        [Parameter(Mandatory)]
+        [ValidateRange(3,10)]
+        [int]
+        $NumberOfProperties
+    )
+
+    $Output = @{}
+    1..$NumberOfProperties | ForEach-Object {
+        $Output.Add("Prop$_", $_)
+    }
+
+    [PSCustomObject]$Output
 }
 
 function Get-CommandMetadata

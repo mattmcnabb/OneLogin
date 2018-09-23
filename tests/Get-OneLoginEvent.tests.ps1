@@ -31,19 +31,11 @@ Describe "Get-OneLoginEvent" {
             }
         
         Context "Since/Until" {
-            Mock Invoke-OneLoginRestMethod -ParameterFilter {$Body.ContainsKey("Since")} -MockWith {$null} -Verifiable
+            Mock Invoke-OneLoginRestMethod -ParameterFilter {$Body.ContainsKey("Since")} -MockWith {New-EventMock} -Verifiable
 
             It "passes 'since' as and API query" {
                 Get-OneloginEvent -Since (Get-Date).Date
-                Assert-VerifiableMocks
-            }
-        }
-
-        Context "API Error handling" {
-            Mock Invoke-OneLoginRestMethod { New-EventMock -InvalidProperties}
-
-            It "throws if API returns unknown properties" {
-                {Get-OneloginEvent -filter @{user_id = "12345"}} | Should Throw
+                Assert-VerifiableMock
             }
         }
 

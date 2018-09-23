@@ -14,19 +14,11 @@ Describe "Get-OneLoginGroup" {
         }
 
         Context "-Identity" {
-            Mock Invoke-OneLoginRestMethod -ParameterFilter {$Body.ContainsKey("id")} -MockWith {$null} -Verifiable
+            Mock Invoke-OneLoginRestMethod -ParameterFilter {$Body.ContainsKey("id")} -MockWith {New-GroupMock} -Verifiable
 
             It "passes 'id' as and API query" {
                 Get-OneloginGroup -Identity '12345'
-                Assert-VerifiableMocks
-            }
-        }
-
-        Context "API Error handling" {
-            Mock Invoke-OneLoginRestMethod { New-GroupMock -InvalidProperties}
-
-            It "throws if API returns unknown properties" {
-                {Get-OneloginGroup} | Should Throw
+                Assert-VerifiableMock
             }
         }
 

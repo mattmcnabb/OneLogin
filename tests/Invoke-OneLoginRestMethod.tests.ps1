@@ -18,7 +18,7 @@ Describe "Invoke-OneLoginRestMethod" {
 
             It "passes a hashtable body" {
                 Invoke-OneLoginRestMethod -Endpoint 'api/users' -Body @{}
-                Assert-VerifiableMocks
+                Assert-VerifiableMock
             }
         }
 
@@ -27,7 +27,7 @@ Describe "Invoke-OneLoginRestMethod" {
 
             It "passes a json body" {
                 Invoke-OneLoginRestMethod -Endpoint 'api/users' -Body @{} -Method Put
-                Assert-VerifiableMocks
+                Assert-VerifiableMock
             }
         }
 
@@ -36,7 +36,7 @@ Describe "Invoke-OneLoginRestMethod" {
 
             It "passes a json body" {
                 Invoke-OneLoginRestMethod -Endpoint 'api/users' -Body @{} -Method Post
-                Assert-VerifiableMocks
+                Assert-VerifiableMock
             }
         }
 
@@ -45,7 +45,7 @@ Describe "Invoke-OneLoginRestMethod" {
 
             It "passes a json body" {
                 Invoke-OneLoginRestMethod -Endpoint 'api/users' -Body @{} -Method Del
-                Assert-VerifiableMocks
+                Assert-VerifiableMock
             }
         }
         
@@ -54,7 +54,7 @@ Describe "Invoke-OneLoginRestMethod" {
 
             It "passes a json body" {
                 Invoke-OneLoginRestMethod -Endpoint 'api/users'
-                Assert-VerifiableMocks
+                Assert-VerifiableMock
             }
         }
 

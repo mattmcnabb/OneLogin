@@ -25,7 +25,7 @@ Describe "Set-OneLoginUser" {
 
             It "passes parameter values into the API query" {
                 $User | Set-OneLoginUser -title "Vice President"
-                Assert-VerifiableMocks
+                Assert-VerifiableMock
             }
         }
     }

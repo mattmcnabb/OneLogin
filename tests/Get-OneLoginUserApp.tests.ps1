@@ -15,14 +15,6 @@ Describe "Get-OneLoginUserApp" {
             Get-OneLoginUserApp -Identity $User | Should BeOfType [OneLogin.App]
         }
 
-        Context "API Error handling" {
-            Mock -CommandName Invoke-OneLoginRestMethod -MockWith { New-AppMock -InvalidProperties}
-
-            It "throws if API returns unknown properties" {
-                {Get-OneloginUserApp -Identity $User} | Should Throw
-            }
-        }
-
         Context "Error handling" {
             Mock Invoke-OneLoginRestMethod { throw }
             

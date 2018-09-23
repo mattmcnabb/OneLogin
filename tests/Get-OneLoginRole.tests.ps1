@@ -26,38 +26,30 @@ Describe "Get-OneLoginRole" {
             {Get-OneLoginRole} | Should Throw
         }
 
-        Context "API Error handling" {
-            Mock -CommandName Invoke-OneLoginRestMethod -MockWith { New-RoleMock -InvalidProperties}
-
-            It "throws if API returns unknown properties" {
-                {Get-OneloginRole -All} | Should Throw
-            }
-        }
-
         Context "-Identity" {
-            Mock Invoke-OneLoginRestMethod -ParameterFilter {$Body.ContainsKey("id")} -MockWith {$null} -Verifiable
+            Mock Invoke-OneLoginRestMethod -ParameterFilter {$Body.ContainsKey("id")} -MockWith {New-RoleMock} -Verifiable
 
             It "passes 'id' into the API query" {
                 Get-OneloginRole -Identity "12345"
-                Assert-VerifiableMocks
+                Assert-VerifiableMock
             }
         }
 
         Context "-All" {
-            Mock Invoke-OneLoginRestMethod -ParameterFilter {$Body -eq $null} -MockWith {$null} -Verifiable
+            Mock Invoke-OneLoginRestMethod -ParameterFilter {$Body -eq $null} -MockWith {New-RoleMock} -Verifiable
 
             It "passes 'id' into the API query" {
                 Get-OneloginRole -All
-                Assert-VerifiableMocks
+                Assert-VerifiableMock
             }
         }
 
         Context "-Filter" {
-            Mock Invoke-OneLoginRestMethod -ParameterFilter {$Body.ContainsKey("name")} -MockWith {$null} -Verifiable
+            Mock Invoke-OneLoginRestMethod -ParameterFilter {$Body.ContainsKey("name")} -MockWith {New-RoleMock} -Verifiable
 
             It "passes a filter into the API query" {
                 Get-OneloginRole -Filter @{name = "Sales"}
-                Assert-VerifiableMocks
+                Assert-VerifiableMock
             }
         }
 
