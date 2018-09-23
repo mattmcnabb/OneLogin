@@ -7,6 +7,7 @@
     Description = "A PowerShell module for automating components of a OneLogin account."
     PowerShellVersion = "5.0"
     FormatsToProcess = @(
+        "formats\ApiRateLimit.format.ps1xml",
         "formats\App.format.ps1xml",
         "formats\Event.format.ps1xml",
         "formats\Group.format.ps1xml",
@@ -43,9 +44,11 @@
             ProjectUri = "https://github.com/mattmcnabb/OneLogin"
             ReleaseNotes = @"
 
-v2.1
+v2.3
 Fixes
-- Get-OneLoginUser returned errors due to undocumented properties returned from the REST api - fixed
+- Still having trouble with errors from new properties returned by the API - fixed
+Features
+- Unknown properties returned by the API will now be added to the object's AdditionalProperties property
 "@
         }
     }
