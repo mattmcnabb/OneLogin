@@ -44,6 +44,9 @@ function Set-OneLoginUser
         [string]
         $manager_ad_id,
 
+        [int]
+        $manager_user_id,
+
         [string]
         $member_of,
 
