@@ -44,6 +44,9 @@ function Set-OneLoginUser
         [string]
         $manager_ad_id,
 
+        [int]
+        $manager_user_id,
+
         [string]
         $member_of,
 
@@ -66,9 +69,15 @@ function Set-OneLoginUser
         $username,
 
         [string]
-        $userprincipalname
+        $userprincipalname,
+
+        [int]
+        $state,
+
+        [int]
+        $status
     )
-    
+
     begin
     {
         $Body = Get-BoundParameter -BoundParameters $PSBoundParameters -ExcludedParameters Identity
@@ -78,7 +87,7 @@ function Set-OneLoginUser
             Body   = $Body
         }
     }
-    
+
     process
     {
         $Splat["Endpoint"] = "api/1/users/$($Identity.Id)"
