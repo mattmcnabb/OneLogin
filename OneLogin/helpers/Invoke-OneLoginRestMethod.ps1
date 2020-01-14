@@ -14,6 +14,9 @@ function Invoke-OneLoginRestMethod
         $Body
     )
 
+    # PS Core 6.2 headeer validation fix
+    $PSDefaultParameterValues['Invoke-RestMethod:SkipHeaderValidation'] = $true
+
     $Uri = "$($Token.ApiBase)/$Endpoint"
 
     $Splat = @{

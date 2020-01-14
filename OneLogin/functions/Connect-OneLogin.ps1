@@ -14,6 +14,9 @@ function Connect-OneLogin
         $Region
     )
 
+    # PS Core 6.2 headeer validation fix
+    $PSDefaultParameterValues['Invoke-RestMethod:SkipHeaderValidation'] = $true
+
     $ID = $Credential.UserName
     $Secret = $Credential.GetNetworkCredential().Password
     $ApiBase = "https://api.$Region.onelogin.com"
