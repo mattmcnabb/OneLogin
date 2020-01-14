@@ -35,6 +35,7 @@
         "Remove-OneLoginUserRole",
         "Set-OneLoginUser",
         "Set-OneLoginUserCustomAttribute"
+        "Set-OneLoginUserPasswd"
     )
 
     PrivateData = @{
