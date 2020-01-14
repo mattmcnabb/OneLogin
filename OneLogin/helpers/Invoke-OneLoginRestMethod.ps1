@@ -5,7 +5,7 @@ function Invoke-OneLoginRestMethod
     (
         [string]
         $Method = "Get",
-        
+
         [Parameter(Mandatory)]
         [string]
         $Endpoint,
@@ -13,7 +13,7 @@ function Invoke-OneLoginRestMethod
         [hashtable]
         $Body
     )
-    
+
     $Uri = "$($Token.ApiBase)/$Endpoint"
 
     $Splat = @{
@@ -22,7 +22,7 @@ function Invoke-OneLoginRestMethod
         ContentType = "application/json"
         Headers     = @{authorization = "bearer:$($Token.access_token)"}
     }
-    
+
     do
     {
         try
@@ -40,14 +40,14 @@ function Invoke-OneLoginRestMethod
             else { $Body = @{} }
 
 
-            $Response = Invoke-RestMethod @Splat -ErrorAction Stop 
+            $Response = Invoke-RestMethod @Splat -ErrorAction Stop
             $Response.Data
         }
         catch
         {
             throw $_
         }
-        
+
     }
     while ($Response.Pagination.after_cursor -and $Response.data.count -eq 50)
 }

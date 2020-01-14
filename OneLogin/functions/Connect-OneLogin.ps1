@@ -13,7 +13,7 @@ function Connect-OneLogin
         [OneLogin.AdminRegion]
         $Region
     )
-    
+
     $ID = $Credential.UserName
     $Secret = $Credential.GetNetworkCredential().Password
     $ApiBase = "https://api.$Region.onelogin.com"
@@ -21,7 +21,7 @@ function Connect-OneLogin
     $AuthHeader = @{ Authorization = "client_id:$ID, client_secret:$Secret" }
 
     $Body = @{ grant_type = "client_credentials" } | ConvertTo-Json
-    
+
     $Splat = @{
         Uri         = "$ApiBase/$EndPoint"
         Headers     = $AuthHeader
