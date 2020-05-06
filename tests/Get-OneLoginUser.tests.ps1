@@ -30,10 +30,6 @@ Describe "Get-OneLoginUser" {
             {Get-OneLoginUser -Filter @{firstname = $null}} | Should Throw
         }
 
-        It "requires a parameter" {
-            {Get-OneLoginUser} | Should Throw
-        }
-
         Context "-Identity" {
             Mock Invoke-OneLoginRestMethod -ParameterFilter {$Body.ContainsKey("id")} -MockWith {New-UserMock} -Verifiable
 
