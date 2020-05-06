@@ -1,10 +1,9 @@
 function Get-OneLoginUser
 {
-    [CmdletBinding(DefaultParameterSetName = "Filter")]
+    [CmdletBinding(DefaultParameterSetName = "All")]
     [OutputType([OneLogin.User])]
     param
     (
-        [CmdletBinding(DefaultParameterSetName = "Filter")]
         [ValidateScript(
             {
                 $EnumValues = [OneLogin.UserFilterParameter].GetEnumNames()
@@ -24,6 +23,7 @@ function Get-OneLoginUser
             }
         )]
         [ValidateNotNullOrEmpty()]
+        [Parameter(ParameterSetName = 'Filter')]
         [hashtable]
         $Filter,
 
@@ -58,6 +58,7 @@ function Get-OneLoginUser
     {
         $OutputType = $PSCmdlet.MyInvocation.MyCommand.OutputType.Type
         (Invoke-OneLoginRestMethod @Splat) | ConvertTo-OneLoginObject -OutputType $OutputType
+        Invoke-OneLoginRestMethod @Splat
     }
     catch
     {
