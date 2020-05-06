@@ -58,7 +58,6 @@ function Get-OneLoginUser
     {
         $OutputType = $PSCmdlet.MyInvocation.MyCommand.OutputType.Type
         (Invoke-OneLoginRestMethod @Splat) | ConvertTo-OneLoginObject -OutputType $OutputType
-        Invoke-OneLoginRestMethod @Splat
     }
     catch
     {
