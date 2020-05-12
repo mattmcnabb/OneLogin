@@ -18,7 +18,8 @@ function Connect-OneLogin
     $Secret = $Credential.GetNetworkCredential().Password
     $ApiBase = "https://api.$Region.onelogin.com"
     $Endpoint = "auth/oauth2/token"
-    $AuthHeader = @{ Authorization = "client_id:$ID, client_secret:$Secret" }
+    $encodedAuthorization = [Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes("$ID`:$Secret"))
+    $AuthHeader = @{ Authorization = "Basic $encodedAuthorization" }
 
     $Body = @{ grant_type = "client_credentials" } | ConvertTo-Json
     
