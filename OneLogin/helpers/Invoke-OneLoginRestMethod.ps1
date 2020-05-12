@@ -20,7 +20,7 @@ function Invoke-OneLoginRestMethod
         Method      = $Method
         Uri         = $Uri
         ContentType = "application/json"
-        Headers     = @{authorization = "bearer:$($Token.access_token)"}
+        Headers     = @{authorization = "bearer $($Token.access_token)"}
     }
     
     do
