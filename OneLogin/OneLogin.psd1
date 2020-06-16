@@ -1,4 +1,4 @@
-﻿@{
+@{
     NestedModules = @("OneLogin.psm1")
     ModuleVersion = "0.1.0"
     GUID = "87e0e33a-1747-4ff2-a812-890565b4f0d1"
@@ -33,6 +33,7 @@
         "Remove-OneLoginUser",
         "Remove-OneLoginUserCustomAttribute",
         "Remove-OneLoginUserRole",
+        "Reset-OneLoginUserPassword",
         "Set-OneLoginUser",
         "Set-OneLoginUserCustomAttribute"
     )
