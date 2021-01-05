@@ -37,7 +37,7 @@ function Get-OneLoginRole
     )
     
     $Splat = @{
-        Endpoint = "api/1/roles"
+        Endpoint = "api/2/roles"
     }
     
     switch ($PSCmdlet.ParameterSetName)
